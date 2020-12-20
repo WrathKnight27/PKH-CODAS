@@ -11,6 +11,7 @@
         <div class="title_right">
             <div class="col-md-3 col-sm-4 col-xs-1 pull-right">
                 <a href="/codasresult/refresh" class="btn btn-primary" type="button">Perbarui Hasil</a>
+                <a href="/codasresultprint" class="btn btn-primary" type="button">Cetak Laporan</a>
             </div>
         </div>
 

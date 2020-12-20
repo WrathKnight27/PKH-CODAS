@@ -11,6 +11,7 @@
         <div class="title_right">
             <div class="col-md-3 col-sm-4 col-xs-1 pull-right">
                 <a href="/finalresult/refresh" class="btn btn-primary" type="button">Perbarui Hasil</a>
+                <a href="/finalresultprint" class="btn btn-primary" type="button">Cetak Laporan</a>
             </div>
         </div>
         <div class="clearfix"></div>

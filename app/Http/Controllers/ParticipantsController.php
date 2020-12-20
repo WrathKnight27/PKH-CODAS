@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\participant;
 use App\variableset;
+use PDF;
 
 use Illuminate\Support\Facades\DB;
 
@@ -201,5 +202,20 @@ class ParticipantsController extends Controller
         return redirect('/adminpanel');
     }
 
+    public function printcodas()
+    {
+        $codasresults = DB::select('select * from participants where status_codas = 1 order by rank asc');
+        // return view('resultcodas', compact('codasresult'));
+        $pdf = PDF::loadview('reportcodas',['codasresults'=>$codasresults]);
+    	return $pdf->download('laporan-seleksi-codas.pdf');
+    }
+
+    public function printfinal()
+    {
+    	$finalresults = DB::select('select * from participants where status_pkh = 1 order by rank asc');
+ 
+    	$pdf = PDF::loadview('reportpkh',['finalresults'=>$finalresults]);
+    	return $pdf->download('laporan-seleksi-pkh.pdf');
+    }
 
 }
