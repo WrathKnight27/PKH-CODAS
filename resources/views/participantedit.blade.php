@@ -118,12 +118,12 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="pendapatan" class="form-control">
                             <option value=0 {{ $participant->pendapatan == 0 ? 'selected' : '' }}>Rp 0 - Rp 500.000</option>
-                            <option value=1 {{ $participant->pendapatan == 1 ? 'selected' : '' }}>Rp 500.100 - 1.000.000</option>
-                            <option value=2 {{ $participant->pendapatan == 2 ? 'selected' : '' }}>Rp 1.000.100 - 2.000.000</option>
-                            <option value=3 {{ $participant->pendapatan == 3 ? 'selected' : '' }}Rp 2.000.100 - 3.000.000</option>
-                            <option value=4 {{ $participant->pendapatan == 4 ? 'selected' : '' }}Rp 3.000.100 - 5.000.000</option>
-                            <option value=5 {{ $participant->pendapatan == 5 ? 'selected' : '' }}Rp 5.000.100 - 7.000.000</option>
-                            <option value=6 {{ $participant->pendapatan == 6 ? 'selected' : '' }}Di Atas Rp 7.000.000</option>
+                            <option value=1 {{ $participant->pendapatan == 1 ? 'selected' : '' }}>Rp 500.100 - Rp 1.000.000</option>
+                            <option value=2 {{ $participant->pendapatan == 2 ? 'selected' : '' }}>Rp 1.000.100 - Rp 2.000.000</option>
+                            <option value=3 {{ $participant->pendapatan == 3 ? 'selected' : '' }}>Rp 2.000.100 - Rp 3.000.000</option>
+                            <option value=4 {{ $participant->pendapatan == 4 ? 'selected' : '' }}>Rp 3.000.100 - Rp 5.000.000</option>
+                            <option value=5 {{ $participant->pendapatan == 5 ? 'selected' : '' }}>Rp 5.000.100 - Rp 7.000.000</option>
+                            <option value=6 {{ $participant->pendapatan == 6 ? 'selected' : '' }}>Di Atas Rp 7.000.000</option>
                           </select>
                         </div>
                       </div>
@@ -135,8 +135,8 @@
                             <option value=1 {{ $participant->tabungan == 1 ? 'selected' : '' }}>Rp 1.000.100 - Rp 2.000.000</option>
                             <option value=2 {{ $participant->tabungan == 2 ? 'selected' : '' }}>Rp 2.000.000 - Rp 4.000.000</option>
                             <option value=3 {{ $participant->tabungan == 3 ? 'selected' : '' }}>Rp 4.000.100 - Rp 6.000.000</option>
-                            <option value=4 {{ $participant->tabungan == 4 ? 'selected' : '' }}>Rp 6.000.100 - 8.000.000</option>
-                            <option value=5 {{ $participant->tabungan == 5 ? 'selected' : '' }}>Rp 8.000.100 - 10.000.000</option>
+                            <option value=4 {{ $participant->tabungan == 4 ? 'selected' : '' }}>Rp 6.000.100 - Rp 8.000.000</option>
+                            <option value=5 {{ $participant->tabungan == 5 ? 'selected' : '' }}>Rp 8.000.100 - Rp 10.000.000</option>
                             <option value=6 {{ $participant->tabungan == 6 ? 'selected' : '' }}>Di Atas Rp 10.000.000</option>
                           </select>
                         </div>

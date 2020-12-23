@@ -13,6 +13,11 @@ class DatabaseSeeder extends Seeder
 {
     $this->call([
         ParticipantSeeder::class,
+        CodasCriteriaSeeder::class,
+        PKHCriteriaSeeder::class,
+        PKHStatsSeeder::class,
+        UserSeeder::class,
+        VariableSetSeeder::class,
     ]);
 }
 }
