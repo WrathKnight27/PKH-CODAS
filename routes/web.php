@@ -65,6 +65,8 @@ Route::patch('/adminpanel/countreset', 'ParticipantsController@countreset');
 
 Route::patch('/adminpanel/variableedit', 'ParticipantsController@variableedit');
 
+Route::patch('/adminpanel/verifdata', 'ParticipantsController@verifdata');
+
 Route::get('/codasresultprint', 'ParticipantsController@printcodas');
 
 Route::get('/finalresultprint', 'ParticipantsController@printfinal');

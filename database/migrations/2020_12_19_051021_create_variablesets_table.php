@@ -16,8 +16,12 @@ class CreateVariablesetsTable extends Migration
         Schema::create('variablesets', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('Default Set');
-            $table->integer('quota')->default('10');
             $table->decimal('parameter',10,3)->default('0.02');
+            $table->integer('method')->default('1');
+            $table->integer('percentquota')->default('10');
+            $table->integer('numberquota')->default('20');
+            $table->biginteger('budgetquota')->default('100000000');
+            $table->integer('allocatedbudget')->default('0');
         });
     }
 

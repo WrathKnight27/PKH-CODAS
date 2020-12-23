@@ -14,8 +14,12 @@ class VariableSetSeeder extends Seeder
         DB::table('variablesets')->insert(
             [
                 'name' => 'Default Set',
-                'quota' => 10,
                 'parameter' => 0.02,
+                'method' => 1,
+                'percentquota' => 10,
+                'numberquota' => 20,
+                'budgetquota' => 100000000,
+                'allocatedbudget' => 0,
             ]
         );
         

@@ -49,6 +49,7 @@
     <!-- scripts content -->
     @include('partials._scripts')
     <!-- /scripts content -->
+    @yield('js')
 
   </body>
 </html>

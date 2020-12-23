@@ -81,44 +81,145 @@ trait CodasMethod
         // Fungsi dipisah karena memerlukan waktu eksekusi yang sangat panjang
         $this->countrh();
         //
-        // Perhitungan Kuota Seleksi
+        // Penentuan Metode Budgeting Seleksi
         $count = DB::table('participants')->where('status_verifikasi', 1)->count();
-        $kuota = DB::table('variablesets')->where('id', '1')->value('quota');
-        $quota = ($kuota * $count)/100;
+        $kuotapersen = DB::table('variablesets')->where('id', '1')->value('percentquota');
+        $kuotajumlah = DB::table('variablesets')->where('id', '1')->value('numberquota');
+        $kuotabudget = DB::table('variablesets')->where('id', '1')->value('budgetquota');
+        $method = DB::table('variablesets')->where('id', '1')->value('method');
+        if ($method == 1){
+            $quota = ($kuotapersen * $count)/100;
+        } elseif ($method == 2) {
+            $quota = $kuotajumlah;
+        } else {
+            $quota = $kuotabudget;
+        }
+        
         //
         // Proses Perankingan, Penentuan Hasil Seleksi, & Perhitungan Nilai Bantuan
         $i=1;
         $rankedlist = participant::orderBy('Hi', 'desc')->get();
         $pkh1 = DB::table('pkhcriterias')->where('id', '1')->value('bantuan');
         $pkh2 = DB::table('pkhcriterias')->where('id', '2')->value('bantuan');
-        $pkh3 = DB::table('pkhcriterias')->where('id', '3')->value('bantuan');
-        $pkh4 = DB::table('pkhcriterias')->where('id', '4')->value('bantuan');
+        $pkh3 = DB::table('pkhcriterias')->where('id', '6')->value('bantuan');
+        $pkh4 = DB::table('pkhcriterias')->where('id', '7')->value('bantuan');
         $pkh5 = DB::table('pkhcriterias')->where('id', '5')->value('bantuan');
-        $pkh6 = DB::table('pkhcriterias')->where('id', '6')->value('bantuan');
-        $pkh7 = DB::table('pkhcriterias')->where('id', '7')->value('bantuan');
+        $pkh6 = DB::table('pkhcriterias')->where('id', '4')->value('bantuan');
+        $pkh7 = DB::table('pkhcriterias')->where('id', '3')->value('bantuan');
+        
+        $pkhinitial = 550000;
+        $pkhtotal = 0;
+        $tempbudget = 0;
         foreach ($rankedlist as $participant){
-            $pkhtotal = $pkh1*$participant->ibu_hamil + $pkh2*$participant->usia_dini + $pkh3*$participant->anak_sd + $pkh4*$participant->anak_smp + $pkh5*$participant->anak_sma + $pkh6*$participant->disabilitas_berat + $pkh7*$participant->lanjut_usia;
+            $npkhlimit = 4;
+            if($participant->ibu_hamil >= $npkhlimit){
+                $pkhtotal = $pkhinitial + $npkhlimit*$pkh1;
+            }
+            else {
+                $pkhtotal = $pkhinitial + $participant->ibu_hamil*$pkh1;
+                $npkhlimit = $npkhlimit - $participant->ibu_hamil;
+                if($npkhlimit > 0){
+                    if($participant->usia_dini >= $npkhlimit){
+                        $pkhtotal = $pkhtotal + $npkhlimit*$pkh2;
+                    }
+                    else {
+                        $pkhtotal = $pkhtotal + $participant->usia_dini*$pkh2;
+                        $npkhlimit = $npkhlimit - $participant->usia_dini;
+                        if($npkhlimit > 0){
+                            if($participant->disabilitas_berat >= $npkhlimit){
+                                $pkhtotal = $pkhtotal + $npkhlimit*$pkh3;
+                            }
+                            else {
+                                $pkhtotal = $pkhtotal + $participant->disabilitas_berat*$pkh3;
+                                $npkhlimit = $npkhlimit - $participant->disabilitas_berat;
+                                if($npkhlimit > 0){
+                                    if($participant->lanjut_usia >= $npkhlimit){
+                                        $pkhtotal = $pkhtotal + $npkhlimit*$pkh4;
+                                    }
+                                    else {
+                                        $pkhtotal = $pkhtotal + $participant->lanjut_usia*$pkh4;
+                                        $npkhlimit = $npkhlimit - $participant->lanjut_usia;
+                                        if($npkhlimit > 0){
+                                            if($participant->anak_sma >= $npkhlimit){
+                                                $pkhtotal = $pkhtotal + $npkhlimit*$pkh5;
+                                            }
+                                            else {
+                                                $pkhtotal = $pkhtotal + $participant->anak_sma*$pkh5;
+                                                $npkhlimit = $npkhlimit - $participant->anak_sma;
+                                                if($npkhlimit > 0){
+                                                    if($participant->anak_smp >= $npkhlimit){
+                                                        $pkhtotal = $pkhtotal + $npkhlimit*$pkh6;
+                                                    }
+                                                    else {
+                                                        $pkhtotal = $pkhtotal + $participant->anak_smp*$pkh6;
+                                                        $npkhlimit = $npkhlimit - $participant->anak_smp;
+                                                        if($npkhlimit > 0){
+                                                            if($participant->anak_sd >= $npkhlimit){
+                                                                $pkhtotal = $pkhtotal + $npkhlimit*$pkh7;
+                                                            }
+                                                            else {
+                                                                $pkhtotal = $pkhtotal + $participant->anak_sd*$pkh7;
+                                                                $npkhlimit = 4;
+                                                                
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            
+        
+                // $pkhtotal = $pkh1*$participant->ibu_hamil + $pkh2*$participant->usia_dini + $pkh3*$participant->anak_sd + $pkh4*$participant->anak_smp + $pkh5*$participant->anak_sma + $pkh6*$participant->disabilitas_berat + $pkh7*$participant->lanjut_usia;
             if($participant->status_verifikasi == 1)
             {
-                if($i <= $quota) 
-                {
-                    $status = 1;
-                    if($pkhtotal > 0)
+                if($method <= 2){    
+                    if($i <= $quota) 
                     {
-                        $pkhstatus = 1;
-                        $nilaibantuan = $pkhtotal;
+                        $status = 1;
+                        if($pkhtotal > 0)
+                        {
+                            $pkhstatus = 1;
+                            $nilaibantuan = $pkhtotal;
+                        }
+                        else
+                        {
+                            $pkhstatus = 0;
+                            $nilaibantuan = 0;
+                        }
                     }
-                    else
+                    else 
                     {
+                        $status = 0;
                         $pkhstatus = 0;
                         $nilaibantuan = 0;
                     }
-                }
-                else 
-                {
-                    $status = 0;
-                    $pkhstatus = 0;
-                    $nilaibantuan = 0;
+                } else {
+                    if (($quota - $pkhtotal) >= 0){
+                        $status = 1;
+                        if($pkhtotal > 0)
+                        {
+                            $pkhstatus = 1;
+                            $nilaibantuan = $pkhtotal;
+                            $quota = $quota - $nilaibantuan;
+                        }
+                        else
+                        {
+                            $pkhstatus = 0;
+                            $nilaibantuan = 0;
+                        }
+                    } else {
+                        $status = 0;
+                        $pkhstatus = 0;
+                        $nilaibantuan = 0;
+                    }
                 }
             }
             else

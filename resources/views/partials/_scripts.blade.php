@@ -56,3 +56,4 @@
     <script src="{{asset('assets/vendors/switchery/dist/switchery.min.js')}}"></script>
     <!-- Custom Theme Scripts -->
     <script src="{{asset('assets/js/custom.min.js')}}"></script>
+   

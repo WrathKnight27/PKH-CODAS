@@ -117,10 +117,13 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Pendapatan Perbulan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="pendapatan" class="form-control">
-                            <option value=0 {{ $participant->pendapatan == 0 ? 'selected' : '' }}>0-500000</option>
-                            <option value=1 {{ $participant->pendapatan == 1 ? 'selected' : '' }}>500000-2000000</option>
-                            <option value=2 {{ $participant->pendapatan == 2 ? 'selected' : '' }}>2000000-5000000</option>
-                            <option value=3 {{ $participant->pendapatan == 3 ? 'selected' : '' }}>5000000++</option>
+                            <option value=0 {{ $participant->pendapatan == 0 ? 'selected' : '' }}>Rp 0 - Rp 500.000</option>
+                            <option value=1 {{ $participant->pendapatan == 1 ? 'selected' : '' }}>Rp 500.100 - 1.000.000</option>
+                            <option value=2 {{ $participant->pendapatan == 2 ? 'selected' : '' }}>Rp 1.000.100 - 2.000.000</option>
+                            <option value=3 {{ $participant->pendapatan == 3 ? 'selected' : '' }}Rp 2.000.100 - 3.000.000</option>
+                            <option value=4 {{ $participant->pendapatan == 4 ? 'selected' : '' }}Rp 3.000.100 - 5.000.000</option>
+                            <option value=5 {{ $participant->pendapatan == 5 ? 'selected' : '' }}Rp 5.000.100 - 7.000.000</option>
+                            <option value=6 {{ $participant->pendapatan == 6 ? 'selected' : '' }}Di Atas Rp 7.000.000</option>
                           </select>
                         </div>
                       </div>
@@ -128,10 +131,13 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Tabungan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="tabungan" class="form-control">
-                            <option value=0 {{ $participant->tabungan == 0 ? 'selected' : '' }}>0-1000000</option>
-                            <option value=1 {{ $participant->tabungan == 1 ? 'selected' : '' }}>1000000-5000000</option>
-                            <option value=2 {{ $participant->tabungan == 2 ? 'selected' : '' }}>5000000-10000000</option>
-                            <option value=3 {{ $participant->tabungan == 3 ? 'selected' : '' }}>10000000++</option>
+                            <option value=0 {{ $participant->tabungan == 0 ? 'selected' : '' }}>Rp 0 - Rp 1.000.000</option>
+                            <option value=1 {{ $participant->tabungan == 1 ? 'selected' : '' }}>Rp 1.000.100 - Rp 2.000.000</option>
+                            <option value=2 {{ $participant->tabungan == 2 ? 'selected' : '' }}>Rp 2.000.000 - Rp 4.000.000</option>
+                            <option value=3 {{ $participant->tabungan == 3 ? 'selected' : '' }}>Rp 4.000.100 - Rp 6.000.000</option>
+                            <option value=4 {{ $participant->tabungan == 4 ? 'selected' : '' }}>Rp 6.000.100 - 8.000.000</option>
+                            <option value=5 {{ $participant->tabungan == 5 ? 'selected' : '' }}>Rp 8.000.100 - 10.000.000</option>
+                            <option value=6 {{ $participant->tabungan == 6 ? 'selected' : '' }}>Di Atas Rp 10.000.000</option>
                           </select>
                         </div>
                       </div>
@@ -207,16 +213,11 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Akses Air Bersih </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="radio">
-                                <label>
-                                <input type="radio" value="1" id="opt_water_1" name="sumber_air_bersih" {{ $participant->sumber_air_bersih == 1 ? 'checked' : ''}}> Ada
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                <input type="radio" value="0" id="opt_water_2" name="sumber_air_bersih" {{ $participant->sumber_air_bersih == 0 ? 'checked' : ''}}> Tidak Ada
-                                </label>
-                            </div>
+                            <select name="sumber_air_bersih" class="form-control">
+                            <option value=0 {{ $participant->sumber_air_bersih == 0 ? 'selected' : '' }}>Sumur / Sungai / Air Hujan</option>
+                            <option value=1 {{ $participant->sumber_air_bersih == 1 ? 'selected' : '' }}>Air Ledeng PDAM</option>
+                            <option value=2 {{ $participant->sumber_air_bersih == 2 ? 'selected' : '' }}>Air Kemasan Bermerk / Isi Ulang</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group">
@@ -260,9 +261,10 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <select name="konsumsi_dsa" class="form-control">
                             <option value=0 {{ $participant->konsumsi_dsa == 0 ? 'selected' : '' }}>Tidak Ada</option>
-                            <option value=1 {{ $participant->konsumsi_dsa == 1 ? 'selected' : '' }}>1 Jenis</option>
-                            <option value=2 {{ $participant->konsumsi_dsa == 2 ? 'selected' : '' }}>2 Jenis</option>
-                            <option value=3 {{ $participant->konsumsi_dsa == 3 ? 'selected' : '' }}>3 Jenis</option>
+                            <option value=1 {{ $participant->konsumsi_dsa == 1 ? 'selected' : '' }}>1 Kali Seminggu</option>
+                            <option value=2 {{ $participant->konsumsi_dsa == 2 ? 'selected' : '' }}>2 Kali Seminggu</option>
+                            <option value=3 {{ $participant->konsumsi_dsa == 3 ? 'selected' : '' }}>3 Kali Seminggu</option>
+                            <option value=4 {{ $participant->konsumsi_dsa == 4 ? 'selected' : '' }}>4-7 Kali Seminggu</option>
                           </select>
                           </div>
                       </div>
@@ -270,10 +272,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Membeli Pakaian </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="membeli_pakaian" class="form-control">
-                            <option value=0 {{ $participant->membeli_pakaian == 0 ? 'selected' : '' }}>0-5</option>
-                            <option value=1 {{ $participant->membeli_pakaian == 1 ? 'selected' : '' }}>5-10</option>
-                            <option value=2 {{ $participant->membeli_pakaian == 2 ? 'selected' : '' }}>10-20</option>
-                            <option value=3 {{ $participant->membeli_pakaian == 3 ? 'selected' : '' }}>21++</option>
+                            <option value=0 {{ $participant->membeli_pakaian == 0 ? 'selected' : '' }}>0-1 Kali dalam 1 Tahun</option>
+                            <option value=1 {{ $participant->membeli_pakaian == 1 ? 'selected' : '' }}>2-3 Kali dalam 1 Tahun</option>
+                            <option value=2 {{ $participant->membeli_pakaian == 2 ? 'selected' : '' }}>4-5 Kali dalam 1 Tahun</option>
+                            <option value=3 {{ $participant->membeli_pakaian == 3 ? 'selected' : '' }}>6-7 Kali dalam 1 Tahun</option>
+                            <option value=4 {{ $participant->membeli_pakaian == 4 ? 'selected' : '' }}>Di Atas 7 Kali dalam 1 Tahun</option>
                           </select>
                         </div>
                       </div>
@@ -306,10 +309,12 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Taksiran Nilai Kendaraan Pribadi </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="kendaraan_pribadi" class="form-control">
-                            <option value=0 {{ $participant->kendaraan_pribadi == 0 ? 'selected' : '' }}>Rp 0-1000000</option>
-                            <option value=1 {{ $participant->kendaraan_pribadi == 1 ? 'selected' : '' }}>Rp 1000001-5000000</option>
-                            <option value=2 {{ $participant->kendaraan_pribadi == 2 ? 'selected' : '' }}>Rp 5000001-15000000</option>
-                            <option value=3 {{ $participant->kendaraan_pribadi == 3 ? 'selected' : '' }}>Rp 15000000++</option>
+                            <option value=1 {{ $participant->kendaraan_pribadi == 1 ? 'selected' : '' }}>Rp 0 - Rp 1.000.000</option>
+                            <option value=2 {{ $participant->kendaraan_pribadi == 2 ? 'selected' : '' }}>Rp 1.000.100 - Rp 3.000.000</option>
+                            <option value=3 {{ $participant->kendaraan_pribadi == 3 ? 'selected' : '' }}>Rp 3.000.100 - Rp 5.000.000</option>
+                            <option value=4 {{ $participant->kendaraan_pribadi == 4 ? 'selected' : '' }}>Rp 5.000.100 - Rp 8.000.000</option>
+                            <option value=5 {{ $participant->kendaraan_pribadi == 5 ? 'selected' : '' }}>Rp 8.000.100 - Rp 15.000.000</option>
+                            <option value=6 {{ $participant->kendaraan_pribadi == 6 ? 'selected' : '' }}>Di Atas Rp 15.000.000</option>
                           </select>
                         </div>
                       </div>
@@ -323,7 +328,7 @@
                                     <option {{ $participant->ibu_hamil == 2 ? 'selected' : '' }}>2</option>
                                     <option {{ $participant->ibu_hamil == 3 ? 'selected' : '' }}>3</option>
                                     <option {{ $participant->ibu_hamil == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->ibu_hamil == 5 ? 'selected' : '' }}>5</option>
+                                    <option {{ $participant->ibu_hamil == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -336,12 +341,7 @@
                                     <option {{ $participant->usia_dini == 2 ? 'selected' : '' }}>2</option>
                                     <option {{ $participant->usia_dini == 3 ? 'selected' : '' }}>3</option>
                                     <option {{ $participant->usia_dini == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->usia_dini == 5 ? 'selected' : '' }}>5</option>
-                                    <option {{ $participant->usia_dini == 6 ? 'selected' : '' }}>6</option>
-                                    <option {{ $participant->usia_dini == 7 ? 'selected' : '' }}>7</option>
-                                    <option {{ $participant->usia_dini == 8 ? 'selected' : '' }}>8</option>
-                                    <option {{ $participant->usia_dini == 9 ? 'selected' : '' }}>9</option>
-                                    <option {{ $participant->usia_dini == 10 ? 'selected' : '' }}>10</option>
+                                    <option {{ $participant->usia_dini == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -354,12 +354,7 @@
                                     <option {{ $participant->anak_sd == 2 ? 'selected' : '' }}>2</option>
                                     <option {{ $participant->anak_sd == 3 ? 'selected' : '' }}>3</option>
                                     <option {{ $participant->anak_sd == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->anak_sd == 5 ? 'selected' : '' }}>5</option>
-                                    <option {{ $participant->anak_sd == 6 ? 'selected' : '' }}>6</option>
-                                    <option {{ $participant->anak_sd == 7 ? 'selected' : '' }}>7</option>
-                                    <option {{ $participant->anak_sd == 8 ? 'selected' : '' }}>8</option>
-                                    <option {{ $participant->anak_sd == 9 ? 'selected' : '' }}>9</option>
-                                    <option {{ $participant->anak_sd == 10 ? 'selected' : '' }}>10</option>
+                                    <option {{ $participant->anak_sd == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -372,12 +367,7 @@
                                     <option {{ $participant->anak_smp == 2 ? 'selected' : '' }}>1</option>
                                     <option {{ $participant->anak_smp == 3 ? 'selected' : '' }}>3</option>
                                     <option {{ $participant->anak_smp == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->anak_smp == 5 ? 'selected' : '' }}>5</option>
-                                    <option {{ $participant->anak_smp == 6 ? 'selected' : '' }}>6</option>
-                                    <option {{ $participant->anak_smp == 7 ? 'selected' : '' }}>7</option>
-                                    <option {{ $participant->anak_smp == 8 ? 'selected' : '' }}>8</option>
-                                    <option {{ $participant->anak_smp == 9 ? 'selected' : '' }}>9</option>
-                                    <option {{ $participant->anak_smp == 10 ? 'selected' : '' }}>10</option>
+                                    <option {{ $participant->anak_smp == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -390,12 +380,7 @@
                                     <option {{ $participant->anak_sma == 2 ? 'selected' : '' }}>2</option>
                                     <option {{ $participant->anak_sma == 3 ? 'selected' : '' }}>3</option>
                                     <option {{ $participant->anak_sma == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->anak_sma == 5 ? 'selected' : '' }}>5</option>
-                                    <option {{ $participant->anak_sma == 6 ? 'selected' : '' }}>6</option>
-                                    <option {{ $participant->anak_sma == 7 ? 'selected' : '' }}>7</option>
-                                    <option {{ $participant->anak_sma == 8 ? 'selected' : '' }}>8</option>
-                                    <option {{ $participant->anak_sma == 9 ? 'selected' : '' }}>9</option>
-                                    <option {{ $participant->anak_sma == 10 ? 'selected' : '' }}>10</option>
+                                    <option {{ $participant->anak_sma == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -408,12 +393,7 @@
                                     <option {{ $participant->disabilitas_berat == 2 ? 'selected' : '' }}>2</option>
                                     <option {{ $participant->disabilitas_berat == 3 ? 'selected' : '' }}>3</option>
                                     <option {{ $participant->disabilitas_berat == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->disabilitas_berat == 5 ? 'selected' : '' }}>5</option>
-                                    <option {{ $participant->disabilitas_berat == 6 ? 'selected' : '' }}>6</option>
-                                    <option {{ $participant->disabilitas_berat == 7 ? 'selected' : '' }}>7</option>
-                                    <option {{ $participant->disabilitas_berat == 8 ? 'selected' : '' }}>8</option>
-                                    <option {{ $participant->disabilitas_berat == 9 ? 'selected' : '' }}>9</option>
-                                    <option {{ $participant->disabilitas_berat == 10 ? 'selected' : '' }}>10</option>
+                                    <option {{ $participant->disabilitas_berat == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -426,12 +406,7 @@
                                     <option {{ $participant->lanjut_usia == 2 ? 'selected' : '' }}>2</option>
                                     <option {{ $participant->lanjut_usia == 3 ? 'selected' : '' }}>3</option>
                                     <option {{ $participant->lanjut_usia == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->lanjut_usia == 5 ? 'selected' : '' }}>5</option>
-                                    <option {{ $participant->lanjut_usia == 6 ? 'selected' : '' }}>6</option>
-                                    <option {{ $participant->lanjut_usia == 7 ? 'selected' : '' }}>7</option>
-                                    <option {{ $participant->lanjut_usia == 8 ? 'selected' : '' }}>8</option>
-                                    <option {{ $participant->lanjut_usia == 9 ? 'selected' : '' }}>9</option>
-                                    <option {{ $participant->lanjut_usia == 10 ? 'selected' : '' }}>10</option>
+                                    <option {{ $participant->lanjut_usia == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>

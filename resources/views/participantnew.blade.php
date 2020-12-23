@@ -116,10 +116,13 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Pendapatan Perbulan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="pendapatan" class="form-control">
-                            <option value=0>0-500000</option>
-                            <option value=1>500000-2000000</option>
-                            <option value=2>2000000-5000000</option>
-                            <option value=3>5000000++</option>
+                            <option value=0>Rp 0 - Rp 500.000</option>
+                            <option value=1>Rp 500.100 - 1.000.000</option>
+                            <option value=2>Rp 1.000.100 - 2.000.000</option>
+                            <option value=3>Rp 2.000.100 - 3.000.000</option>
+                            <option value=4>Rp 3.000.100 - 5.000.000</option>
+                            <option value=5>Rp 5.000.100 - 7.000.000</option>
+                            <option value=6>Di Atas Rp 7.000.000</option>
                           </select>
                         </div>
                       </div>
@@ -127,10 +130,13 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Tabungan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="tabungan" class="form-control">
-                            <option value=0>0-1000000</option>
-                            <option value=1>1000000-5000000</option>
-                            <option value=2>5000000-10000000</option>
-                            <option value=3>10000000++</option>
+                            <option value=0>Rp 0 - Rp 1.000.000</option>
+                            <option value=1>Rp 1.000.100 - Rp 2.000.000</option>
+                            <option value=2>Rp 2.000.000 - Rp 4.000.000</option>
+                            <option value=3>Rp 4.000.100 - Rp 6.000.000</option>
+                            <option value=4>Rp 6.000.100 - 8.000.000</option>
+                            <option value=5>Rp 8.000.100 - 10.000.000</option>
+                            <option value=6>Di Atas Rp 10.000.000</option>
                           </select>
                         </div>
                       </div>
@@ -204,18 +210,13 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Akses Air Bersih </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Sumber Air Bersih </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="radio">
-                                <label>
-                                <input type="radio" checked="" value="1" id="opt_water_1" name="sumber_air_bersih"> Ada
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                <input type="radio" value="0" id="opt_water_2" name="sumber_air_bersih"> Tidak Ada
-                                </label>
-                            </div>
+                          <select name="sumber_air_bersih" class="form-control">
+                            <option value=0>Sumur / Sungai / Air Hujan</option>
+                            <option value=1>Air Ledeng PDAM</option>
+                            <option value=2>Air Kemasan Bermerk / Isi Ulang</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group">
@@ -255,13 +256,14 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Konsumsi Protein </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Konsumsi Daging/Susu/Ayam </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <select name="konsumsi_dsa" class="form-control">
                             <option value=0>Tidak Ada</option>
-                            <option value=1>1 Jenis</option>
-                            <option value=2>2 Jenis</option>
-                            <option value=3>3 Jenis</option>
+                            <option value=1>1 Kali Seminggu</option>
+                            <option value=2>2 Kali Seminggu</option>
+                            <option value=3>3 Kali Seminggu</option>
+                            <option value=4>4-7 Kali Seminggu</option>
                           </select>
                           </div>
                       </div>
@@ -269,10 +271,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Membeli Pakaian </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="membeli_pakaian" class="form-control">
-                            <option value=0>0-5</option>
-                            <option value=1>5-10</option>
-                            <option value=2>10-20</option>
-                            <option value=3>21++</option>
+                            <option value=0>0-1 Kali dalam 1 Tahun</option>
+                            <option value=1>2-3 Kali dalam 1 Tahun</option>
+                            <option value=2>4-5 Kali dalam 1 Tahun</option>
+                            <option value=3>6-7 Kali dalam 1 Tahun</option>
+                            <option value=4>Di Atas 7 Kali dalam 1 Tahun</option>
                           </select>
                         </div>
                       </div>
@@ -305,10 +308,12 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Taksiran Nilai Kendaraan Pribadi </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="kendaraan_pribadi" class="form-control">
-                            <option value=1>Rp 0-1000000</option>
-                            <option value=2>Rp 1000001-5000000</option>
-                            <option value=3>Rp 5000001-15000000</option>
-                            <option value=4>Rp 15000000++</option>
+                            <option value=1>Rp 0 - Rp 1.000.000</option>
+                            <option value=2>Rp 1.000.100 - Rp 3.000.000</option>
+                            <option value=3>Rp 3.000.100 - Rp 5.000.000</option>
+                            <option value=4>Rp 5.000.100 - Rp 8.000.000</option>
+                            <option value=5>Rp 8.000.100 - Rp 15.000.000</option>
+                            <option value=6>Di Atas Rp 15.000.000</option>
                           </select>
                         </div>
                       </div>
@@ -336,11 +341,6 @@
                                     <option>3</option>
                                     <option>4</option>
                                     <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
                                 </select>
                             </div>
                         </div>
@@ -354,11 +354,6 @@
                                     <option>3</option>
                                     <option>4</option>
                                     <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
                                 </select>
                             </div>
                         </div>
@@ -372,11 +367,6 @@
                                     <option>3</option>
                                     <option>4</option>
                                     <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
                                 </select>
                             </div>
                         </div>
@@ -390,11 +380,6 @@
                                     <option>3</option>
                                     <option>4</option>
                                     <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
                                 </select>
                             </div>
                         </div>
@@ -408,11 +393,6 @@
                                     <option>3</option>
                                     <option>4</option>
                                     <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
                                 </select>
                             </div>
                         </div>
@@ -425,12 +405,6 @@
                                     <option>2</option>
                                     <option>3</option>
                                     <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
                                 </select>
                             </div>
                         </div>

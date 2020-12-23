@@ -195,11 +195,50 @@ class ParticipantsController extends Controller
     public function variableedit(Request $request)
     {
         $variablesets = variableset::all();
-        variableset::where('id', 1)->update([
-            'quota' => $request->kuota,
-            'parameter' => $request->parameter,
-        ]);
+        if($request->budgeting == 1){
+            variableset::where('id', 1)->update([
+                'parameter' => $request->parameter,
+                'method' => $request->budgeting,
+                'percentquota' => $request->percent,
+            ]);
+        } elseif ($request->budgeting == 2){
+            variableset::where('id', 1)->update([
+                'parameter' => $request->parameter,
+                'method' => $request->budgeting,
+                'numberquota' => $request->number,
+            ]);
+        } elseif ($request->budgeting == 3) {
+            variableset::where('id', 1)->update([
+                'parameter' => $request->parameter,
+                'method' => $request->budgeting,
+                'budgetquota' => $request->budget,
+            ]);
+        } else {
+            variableset::where('id', 1)->update([
+                'parameter' => $request->parameter,
+            ]);
+        }
+        
         return redirect('/adminpanel');
+    }
+
+    public function verifdata(Request $request)
+    {
+        $participants = participant::all()->random()->get();
+        $n = $request->verifnumber;
+        foreach ($participants as $participant){
+            if ($n > 0){
+                participant::where('id', $participant->id)->update([
+                    'status_verifikasi' => 1,
+                ]);
+                $n = $n - 1;
+            } else {
+                participant::where('id', $participant->id)->update([
+                    'status_verifikasi' => 0,
+                ]);
+            }
+        }
+    	return redirect('/adminpanel');
     }
 
     public function printcodas()

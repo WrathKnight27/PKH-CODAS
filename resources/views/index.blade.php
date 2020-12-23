@@ -8,6 +8,10 @@
       $pesertaverifikasi = DB::table('participants')->where('status_verifikasi', 1)->count();
       $seleksicodas = DB::table('participants')->where('status_codas', 1)->count();
       $seleksipkh = DB::table('participants')->where('status_pkh', 1)->count();
+      $danateralokasi = DB::table('participants')->sum('nilai_bantuan');
+      $danatotal = DB::table('variablesets')->sum('budgetquota');
+      $dt = $danateralokasi / 1000000 ;
+      $dtot = $danatotal /1000000 ;
   ?>
   <div class="row tile_count">
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -31,13 +35,13 @@
       <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>7% </i> dari periode lalu</span>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-money"></i>  Total Anggaran (Juta)</span>
-      <div class="count">35.000</div>
+      <span class="count_top"><i class="fa fa-money"></i>  Dana Teralokasi (Juta)</span>
+      <div class="count"> {{$dt}} </div>
       <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>10% </i> dari periode lalu</span>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-      <span class="count_top"><i class="fa fa-money"></i>  Anggaran Periode Ini (Juta)</span>
-      <div class="count">0,528</div>
+      <span class="count_top"><i class="fa fa-money"></i>  Total Dana (Juta)</span>
+      <div class="count"> {{$dtot}} </div>
       <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> dari periode lalu</span>
     </div>
   </div>

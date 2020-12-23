@@ -29,6 +29,7 @@
                                     <th scope = "col">Nama Kriteria</th>
                                     <th scope = "col">Bobot</th>
                                     <th scope = "col">Aktif</th>
+                                    <th scope = "col">Tipe Kriteria</th>
                                     <th scope = "col">Action</th>
                                 </tr>
                             </thead>
@@ -46,6 +47,12 @@
                                         <td>{{ $codascriteria -> name }}</td>
                                         <td>{{ $codascriteria -> weight }}</td>
                                         <td>{{ $codascriteria -> active }}</td>
+                                        <td>{{ $codascriteria -> type }}</td>
+                                        <!-- @if ($codascriteria -> type = 0)
+                                            <td>Cost</td>
+                                        @else
+                                            <td>Costa</td>
+                                        @endif -->
                                         <td>
                                             <a href="/criteria/codas/{{ $codascriteria -> id}}" class="badge badge-success">edit</a>
                                         </td>
