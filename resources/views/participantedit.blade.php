@@ -117,13 +117,13 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Pendapatan Perbulan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="pendapatan" class="form-control">
-                            <option value=0 {{ $participant->pendapatan == 0 ? 'selected' : '' }}>Rp 0 - Rp 500.000</option>
-                            <option value=1 {{ $participant->pendapatan == 1 ? 'selected' : '' }}>Rp 500.100 - Rp 1.000.000</option>
-                            <option value=2 {{ $participant->pendapatan == 2 ? 'selected' : '' }}>Rp 1.000.100 - Rp 2.000.000</option>
-                            <option value=3 {{ $participant->pendapatan == 3 ? 'selected' : '' }}>Rp 2.000.100 - Rp 3.000.000</option>
-                            <option value=4 {{ $participant->pendapatan == 4 ? 'selected' : '' }}>Rp 3.000.100 - Rp 5.000.000</option>
-                            <option value=5 {{ $participant->pendapatan == 5 ? 'selected' : '' }}>Rp 5.000.100 - Rp 7.000.000</option>
-                            <option value=6 {{ $participant->pendapatan == 6 ? 'selected' : '' }}>Di Atas Rp 7.000.000</option>
+                            <option value=1 {{ $participant->pendapatan == 1 ? 'selected' : '' }}>Rp 0 - Rp 500.000</option>
+                            <option value=2 {{ $participant->pendapatan == 2 ? 'selected' : '' }}>Rp 500.100 - Rp 1.000.000</option>
+                            <option value=3 {{ $participant->pendapatan == 3 ? 'selected' : '' }}>Rp 1.000.100 - Rp 2.000.000</option>
+                            <option value=4 {{ $participant->pendapatan == 4 ? 'selected' : '' }}>Rp 2.000.100 - Rp 3.000.000</option>
+                            <option value=5 {{ $participant->pendapatan == 5 ? 'selected' : '' }}>Rp 3.000.100 - Rp 5.000.000</option>
+                            <option value=6 {{ $participant->pendapatan == 6 ? 'selected' : '' }}>Rp 5.000.100 - Rp 7.000.000</option>
+                            <option value=7 {{ $participant->pendapatan == 7 ? 'selected' : '' }}>Di Atas Rp 7.000.000</option>
                           </select>
                         </div>
                       </div>
@@ -131,13 +131,13 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Tabungan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="tabungan" class="form-control">
-                            <option value=0 {{ $participant->tabungan == 0 ? 'selected' : '' }}>Rp 0 - Rp 1.000.000</option>
-                            <option value=1 {{ $participant->tabungan == 1 ? 'selected' : '' }}>Rp 1.000.100 - Rp 2.000.000</option>
-                            <option value=2 {{ $participant->tabungan == 2 ? 'selected' : '' }}>Rp 2.000.000 - Rp 4.000.000</option>
-                            <option value=3 {{ $participant->tabungan == 3 ? 'selected' : '' }}>Rp 4.000.100 - Rp 6.000.000</option>
-                            <option value=4 {{ $participant->tabungan == 4 ? 'selected' : '' }}>Rp 6.000.100 - Rp 8.000.000</option>
-                            <option value=5 {{ $participant->tabungan == 5 ? 'selected' : '' }}>Rp 8.000.100 - Rp 10.000.000</option>
-                            <option value=6 {{ $participant->tabungan == 6 ? 'selected' : '' }}>Di Atas Rp 10.000.000</option>
+                            <option value=1 {{ $participant->tabungan == 1 ? 'selected' : '' }}>Rp 0 - Rp 1.000.000</option>
+                            <option value=2 {{ $participant->tabungan == 2 ? 'selected' : '' }}>Rp 1.000.100 - Rp 2.000.000</option>
+                            <option value=3 {{ $participant->tabungan == 3 ? 'selected' : '' }}>Rp 2.000.000 - Rp 4.000.000</option>
+                            <option value=4 {{ $participant->tabungan == 4 ? 'selected' : '' }}>Rp 4.000.100 - Rp 6.000.000</option>
+                            <option value=5 {{ $participant->tabungan == 5 ? 'selected' : '' }}>Rp 6.000.100 - Rp 8.000.000</option>
+                            <option value=6 {{ $participant->tabungan == 6 ? 'selected' : '' }}>Rp 8.000.100 - Rp 10.000.000</option>
+                            <option value=7 {{ $participant->tabungan == 7 ? 'selected' : '' }}>Di Atas Rp 10.000.000</option>
                           </select>
                         </div>
                       </div>
@@ -145,11 +145,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Luas Bangunan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="luas_bangunan" class="form-control">
-                            <option value=0 {{ $participant->luas_bangunan == 0 ? 'selected' : '' }}>0-10 meter persegi</option>
-                            <option value=1 {{ $participant->luas_bangunan == 1 ? 'selected' : '' }}>10-20 meter persegi</option>
-                            <option value=2 {{ $participant->luas_bangunan == 2 ? 'selected' : '' }}>20-30 meter persegi</option>
-                            <option value=3 {{ $participant->luas_bangunan == 3 ? 'selected' : '' }}>30-40 meter persegi</option>
-                            <option value=4 {{ $participant->luas_bangunan == 4 ? 'selected' : '' }}>40++ meter persegi</option>
+                            <option value=1 {{ $participant->luas_bangunan == 1 ? 'selected' : '' }}>0-10 meter persegi</option>
+                            <option value=2 {{ $participant->luas_bangunan == 2 ? 'selected' : '' }}>10-20 meter persegi</option>
+                            <option value=3 {{ $participant->luas_bangunan == 3 ? 'selected' : '' }}>20-30 meter persegi</option>
+                            <option value=4 {{ $participant->luas_bangunan == 4 ? 'selected' : '' }}>30-40 meter persegi</option>
+                            <option value=5 {{ $participant->luas_bangunan == 5 ? 'selected' : '' }}>40++ meter persegi</option>
                           </select>
                         </div>
                       </div>
@@ -157,11 +157,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Luas Tanah </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="luas_tanah" class="form-control">
-                            <option value=0 {{ $participant->luas_tanah == 0 ? 'selected' : '' }}>0-20 meter persegi</option>
-                            <option value=1 {{ $participant->luas_tanah == 1 ? 'selected' : '' }}>20-40 meter persegi</option>
-                            <option value=2 {{ $participant->luas_tanah == 2 ? 'selected' : '' }}>40-60 meter persegi</option>
-                            <option value=3 {{ $participant->luas_tanah == 3 ? 'selected' : '' }}>60-80 meter persegi</option>
-                            <option value=4 {{ $participant->luas_tanah == 4 ? 'selected' : '' }}>80++ meter persegi</option>
+                            <option value=1 {{ $participant->luas_tanah == 1 ? 'selected' : '' }}>0-20 meter persegi</option>
+                            <option value=2 {{ $participant->luas_tanah == 2 ? 'selected' : '' }}>20-40 meter persegi</option>
+                            <option value=3 {{ $participant->luas_tanah == 3 ? 'selected' : '' }}>40-60 meter persegi</option>
+                            <option value=4 {{ $participant->luas_tanah == 4 ? 'selected' : '' }}>60-80 meter persegi</option>
+                            <option value=5 {{ $participant->luas_tanah == 5 ? 'selected' : '' }}>80++ meter persegi</option>
                           </select>
                         </div>
                       </div>
@@ -170,12 +170,12 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="1" id="opt_bab_1" name="fasilitas_bab" {{ $participant->fasilitas_bab == 1 ? 'checked' : ''}}> Layak
+                                <input type="radio" value="2" id="opt_bab_1" name="fasilitas_bab" {{ $participant->fasilitas_bab == 1 ? 'checked' : ''}}> Layak
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="0" id="opt_bab_2" name="fasilitas_bab" {{ $participant->fasilitas_bab == 0 ? 'checked' : ''}}> Tidak Layak
+                                <input type="radio" value="1" id="opt_bab_2" name="fasilitas_bab" {{ $participant->fasilitas_bab == 0 ? 'checked' : ''}}> Tidak Layak
                                 </label>
                             </div>
                         </div>
@@ -185,12 +185,12 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="1" id="opt_floor_1" name="jenis_lantai" {{ $participant->jenis_lantai == 1 ? 'checked' : ''}}> Layak
+                                <input type="radio" value="2" id="opt_floor_1" name="jenis_lantai" {{ $participant->jenis_lantai == 1 ? 'checked' : ''}}> Layak
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="0" id="opt_floor_2" name="jenis_lantai" {{ $participant->jenis_lantai == 0 ? 'checked' : ''}}> Tidak Layak
+                                <input type="radio" value="1" id="opt_floor_2" name="jenis_lantai" {{ $participant->jenis_lantai == 0 ? 'checked' : ''}}> Tidak Layak
                                 </label>
                             </div>
                         </div>
@@ -200,12 +200,12 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="1" id="opt_wall_1" name="jenis_dinding" {{ $participant->jenis_dinding == 1 ? 'checked' : ''}}> Layak
+                                <input type="radio" value="2" id="opt_wall_1" name="jenis_dinding" {{ $participant->jenis_dinding == 1 ? 'checked' : ''}}> Layak
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="0" id="opt_wall_2" name="jenis_dinding" {{ $participant->jenis_dinding == 0 ? 'checked' : ''}}> Tidak Layak
+                                <input type="radio" value="1" id="opt_wall_2" name="jenis_dinding" {{ $participant->jenis_dinding == 0 ? 'checked' : ''}}> Tidak Layak
                                 </label>
                             </div>
                         </div>
@@ -214,9 +214,9 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Akses Air Bersih </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select name="sumber_air_bersih" class="form-control">
-                            <option value=0 {{ $participant->sumber_air_bersih == 0 ? 'selected' : '' }}>Sumur / Sungai / Air Hujan</option>
-                            <option value=1 {{ $participant->sumber_air_bersih == 1 ? 'selected' : '' }}>Air Ledeng PDAM</option>
-                            <option value=2 {{ $participant->sumber_air_bersih == 2 ? 'selected' : '' }}>Air Kemasan Bermerk / Isi Ulang</option>
+                            <option value=1 {{ $participant->sumber_air_bersih == 1 ? 'selected' : '' }}>Sumur / Sungai / Air Hujan</option>
+                            <option value=2 {{ $participant->sumber_air_bersih == 2 ? 'selected' : '' }}>Air Ledeng PDAM</option>
+                            <option value=3 {{ $participant->sumber_air_bersih == 3 ? 'selected' : '' }}>Air Kemasan Bermerk / Isi Ulang</option>
                           </select>
                         </div>
                       </div>
@@ -224,9 +224,9 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Biaya Pengobatan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="biaya_pengobatan" class="form-control">
-                            <option value=0 {{ $participant->biaya_pengobatan == 0 ? 'selected' : '' }}>Rp 0-200000</option>
-                            <option value=1 {{ $participant->biaya_pengobatan == 1 ? 'selected' : '' }}>Rp 200000-500000</option>
-                            <option value=2 {{ $participant->biaya_pengobatan == 2 ? 'selected' : '' }}>Rp 500000++</option>
+                            <option value=1 {{ $participant->biaya_pengobatan == 1 ? 'selected' : '' }}>Rp 0-200000</option>
+                            <option value=2 {{ $participant->biaya_pengobatan == 2 ? 'selected' : '' }}>Rp 200000-500000</option>
+                            <option value=3 {{ $participant->biaya_pengobatan == 3 ? 'selected' : '' }}>Rp 500000++</option>
                           </select>
                         </div>
                       </div>
@@ -234,14 +234,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Pemakaian Listrik PLN </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="pemakaian_listrik" class="form-control">
-                            <option value=0 {{ $participant->pemakaian_listrik == 0 ? 'selected' : '' }}>Tidak Ada</option>
-                            <option value=1 {{ $participant->pemakaian_listrik == 1 ? 'selected' : '' }}>450 VA</option>
-                            <option value=2 {{ $participant->pemakaian_listrik == 2 ? 'selected' : '' }}>900 VA</option>
-                            <option value=3 {{ $participant->pemakaian_listrik == 3 ? 'selected' : '' }}>1300 VA</option>
-                            <option value=4 {{ $participant->pemakaian_listrik == 4 ? 'selected' : '' }}>2200 VA</option>
-                            <option value=5 {{ $participant->pemakaian_listrik == 5 ? 'selected' : '' }}>5500 VA</option>
-                            <option value=6 {{ $participant->pemakaian_listrik == 6 ? 'selected' : '' }}>14000 VA</option>
-                            <option value=7 {{ $participant->pemakaian_listrik == 7 ? 'selected' : '' }}>200000 VA</option>
+                            <option value=1 {{ $participant->pemakaian_listrik == 1 ? 'selected' : '' }}>Tidak Ada</option>
+                            <option value=2 {{ $participant->pemakaian_listrik == 2 ? 'selected' : '' }}>450 VA</option>
+                            <option value=3 {{ $participant->pemakaian_listrik == 3 ? 'selected' : '' }}>900 VA</option>
+                            <option value=4 {{ $participant->pemakaian_listrik == 4 ? 'selected' : '' }}>1300 VA</option>
+                            <option value=5 {{ $participant->pemakaian_listrik == 5 ? 'selected' : '' }}>2200 VA</option>
+                            <option value=6 {{ $participant->pemakaian_listrik == 6 ? 'selected' : '' }}>5500 VA</option>
+                            <option value=7 {{ $participant->pemakaian_listrik == 7 ? 'selected' : '' }}>14000 VA</option>
+                            <option value=8 {{ $participant->pemakaian_listrik == 8 ? 'selected' : '' }}>200000 VA</option>
                           </select>
                         </div>
                       </div>
@@ -249,10 +249,10 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Bahan Bakar Memasak </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="bahan_bakar_masak" class="form-control">
-                            <option value=0 {{ $participant->bahan_bakar_masak == 0 ? 'selected' : '' }}>Kayu Bakar</option>
-                            <option value=1 {{ $participant->bahan_bakar_masak == 1 ? 'selected' : '' }}>Elpiji 3KG</option>
-                            <option value=2 {{ $participant->bahan_bakar_masak == 2 ? 'selected' : '' }}>Bright Gas 5,5KG</option>
-                            <option value=3 {{ $participant->bahan_bakar_masak == 3 ? 'selected' : '' }}>Elpiji / Bright Gas 12KG</option>
+                            <option value=1 {{ $participant->bahan_bakar_masak == 1 ? 'selected' : '' }}>Kayu Bakar</option>
+                            <option value=2 {{ $participant->bahan_bakar_masak == 2 ? 'selected' : '' }}>Elpiji 3KG</option>
+                            <option value=3 {{ $participant->bahan_bakar_masak == 3 ? 'selected' : '' }}>Bright Gas 5,5KG</option>
+                            <option value=4 {{ $participant->bahan_bakar_masak == 4 ? 'selected' : '' }}>Elpiji / Bright Gas 12KG</option>
                           </select>
                         </div>
                       </div>
@@ -260,11 +260,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Konsumsi Protein </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <select name="konsumsi_dsa" class="form-control">
-                            <option value=0 {{ $participant->konsumsi_dsa == 0 ? 'selected' : '' }}>Tidak Ada</option>
-                            <option value=1 {{ $participant->konsumsi_dsa == 1 ? 'selected' : '' }}>1 Kali Seminggu</option>
-                            <option value=2 {{ $participant->konsumsi_dsa == 2 ? 'selected' : '' }}>2 Kali Seminggu</option>
-                            <option value=3 {{ $participant->konsumsi_dsa == 3 ? 'selected' : '' }}>3 Kali Seminggu</option>
-                            <option value=4 {{ $participant->konsumsi_dsa == 4 ? 'selected' : '' }}>4-7 Kali Seminggu</option>
+                            <option value=1 {{ $participant->konsumsi_dsa == 1 ? 'selected' : '' }}>Tidak Ada</option>
+                            <option value=2 {{ $participant->konsumsi_dsa == 2 ? 'selected' : '' }}>1 Kali Seminggu</option>
+                            <option value=3 {{ $participant->konsumsi_dsa == 3 ? 'selected' : '' }}>2 Kali Seminggu</option>
+                            <option value=4 {{ $participant->konsumsi_dsa == 4 ? 'selected' : '' }}>3 Kali Seminggu</option>
+                            <option value=5 {{ $participant->konsumsi_dsa == 5 ? 'selected' : '' }}>4-7 Kali Seminggu</option>
                           </select>
                           </div>
                       </div>
@@ -272,11 +272,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Membeli Pakaian </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="membeli_pakaian" class="form-control">
-                            <option value=0 {{ $participant->membeli_pakaian == 0 ? 'selected' : '' }}>0-1 Kali dalam 1 Tahun</option>
-                            <option value=1 {{ $participant->membeli_pakaian == 1 ? 'selected' : '' }}>2-3 Kali dalam 1 Tahun</option>
-                            <option value=2 {{ $participant->membeli_pakaian == 2 ? 'selected' : '' }}>4-5 Kali dalam 1 Tahun</option>
-                            <option value=3 {{ $participant->membeli_pakaian == 3 ? 'selected' : '' }}>6-7 Kali dalam 1 Tahun</option>
-                            <option value=4 {{ $participant->membeli_pakaian == 4 ? 'selected' : '' }}>Di Atas 7 Kali dalam 1 Tahun</option>
+                            <option value=1 {{ $participant->membeli_pakaian == 1 ? 'selected' : '' }}>0-1 Kali dalam 1 Tahun</option>
+                            <option value=2 {{ $participant->membeli_pakaian == 2 ? 'selected' : '' }}>2-3 Kali dalam 1 Tahun</option>
+                            <option value=3 {{ $participant->membeli_pakaian == 3 ? 'selected' : '' }}>4-5 Kali dalam 1 Tahun</option>
+                            <option value=4 {{ $participant->membeli_pakaian == 4 ? 'selected' : '' }}>6-7 Kali dalam 1 Tahun</option>
+                            <option value=5 {{ $participant->membeli_pakaian == 5 ? 'selected' : '' }}>Di Atas 7 Kali dalam 1 Tahun</option>
                           </select>
                         </div>
                       </div>
@@ -294,14 +294,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Pendidikan Kepala Keluarga </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="pendidikan_krt" class="form-control">
-                            <option value=0 {{ $participant->pendidikan_krt == 0 ? 'selected' : '' }}>Tidak Sekolah</option>
-                            <option value=1 {{ $participant->pendidikan_krt == 1 ? 'selected' : '' }}>SD</option>
-                            <option value=2 {{ $participant->pendidikan_krt == 2 ? 'selected' : '' }}>SMP</option>
-                            <option value=3 {{ $participant->pendidikan_krt == 3 ? 'selected' : '' }}>SMA</option>
-                            <option value=4 {{ $participant->pendidikan_krt == 4 ? 'selected' : '' }}>D3</option>
-                            <option value=5 {{ $participant->pendidikan_krt == 5 ? 'selected' : '' }}>S1</option>
-                            <option value=6 {{ $participant->pendidikan_krt == 6 ? 'selected' : '' }}>S2</option>
-                            <option value=7 {{ $participant->pendidikan_krt == 7 ? 'selected' : '' }}>S3</option>
+                            <option value=1 {{ $participant->pendidikan_krt == 1 ? 'selected' : '' }}>Tidak Sekolah</option>
+                            <option value=2 {{ $participant->pendidikan_krt == 2 ? 'selected' : '' }}>SD</option>
+                            <option value=3 {{ $participant->pendidikan_krt == 3 ? 'selected' : '' }}>SMP</option>
+                            <option value=4 {{ $participant->pendidikan_krt == 4 ? 'selected' : '' }}>SMA</option>
+                            <option value=5 {{ $participant->pendidikan_krt == 5 ? 'selected' : '' }}>D3</option>
+                            <option value=6 {{ $participant->pendidikan_krt == 6 ? 'selected' : '' }}>S1</option>
+                            <option value=7 {{ $participant->pendidikan_krt == 7 ? 'selected' : '' }}>S2</option>
+                            <option value=8 {{ $participant->pendidikan_krt == 8 ? 'selected' : '' }}>S3</option>
                           </select>
                         </div>
                       </div>
@@ -323,12 +323,12 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Ibu Hamil </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select name="ibu_hamil" class="form-control">
-                                    <option {{ $participant->ibu_hamil == 0 ? 'selected' : '' }}>0</option>
-                                    <option {{ $participant->ibu_hamil == 1 ? 'selected' : '' }}>1</option>
-                                    <option {{ $participant->ibu_hamil == 2 ? 'selected' : '' }}>2</option>
-                                    <option {{ $participant->ibu_hamil == 3 ? 'selected' : '' }}>3</option>
-                                    <option {{ $participant->ibu_hamil == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->ibu_hamil == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
+                                    <option value=0 {{ $participant->ibu_hamil == 0 ? 'selected' : '' }}>0</option>
+                                    <option value=1 {{ $participant->ibu_hamil == 1 ? 'selected' : '' }}>1</option>
+                                    <option value=2 {{ $participant->ibu_hamil == 2 ? 'selected' : '' }}>2</option>
+                                    <option value=3 {{ $participant->ibu_hamil == 3 ? 'selected' : '' }}>3</option>
+                                    <option value=4 {{ $participant->ibu_hamil == 4 ? 'selected' : '' }}>4</option>
+                                    <option value=5 {{ $participant->ibu_hamil == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -336,12 +336,12 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Anak Usia Dini </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select name="usia_dini" class="form-control">
-                                    <option {{ $participant->usia_dini == 0 ? 'selected' : '' }}>0</option>
-                                    <option {{ $participant->usia_dini == 1 ? 'selected' : '' }}>1</option>
-                                    <option {{ $participant->usia_dini == 2 ? 'selected' : '' }}>2</option>
-                                    <option {{ $participant->usia_dini == 3 ? 'selected' : '' }}>3</option>
-                                    <option {{ $participant->usia_dini == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->usia_dini == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
+                                    <option value=0 {{ $participant->usia_dini == 0 ? 'selected' : '' }}>0</option>
+                                    <option value=1 {{ $participant->usia_dini == 1 ? 'selected' : '' }}>1</option>
+                                    <option value=2 {{ $participant->usia_dini == 2 ? 'selected' : '' }}>2</option>
+                                    <option value=3 {{ $participant->usia_dini == 3 ? 'selected' : '' }}>3</option>
+                                    <option value=4 {{ $participant->usia_dini == 4 ? 'selected' : '' }}>4</option>
+                                    <option value=5 {{ $participant->usia_dini == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -349,12 +349,12 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Anak SD </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select name="anak_sd" class="form-control">
-                                    <option {{ $participant->anak_sd == 0 ? 'selected' : '' }}>0</option>
-                                    <option {{ $participant->anak_sd == 1 ? 'selected' : '' }}>1</option>
-                                    <option {{ $participant->anak_sd == 2 ? 'selected' : '' }}>2</option>
-                                    <option {{ $participant->anak_sd == 3 ? 'selected' : '' }}>3</option>
-                                    <option {{ $participant->anak_sd == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->anak_sd == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
+                                    <option value=0 {{ $participant->anak_sd == 0 ? 'selected' : '' }}>0</option>
+                                    <option value=1 {{ $participant->anak_sd == 1 ? 'selected' : '' }}>1</option>
+                                    <option value=2 {{ $participant->anak_sd == 2 ? 'selected' : '' }}>2</option>
+                                    <option value=3 {{ $participant->anak_sd == 3 ? 'selected' : '' }}>3</option>
+                                    <option value=4 {{ $participant->anak_sd == 4 ? 'selected' : '' }}>4</option>
+                                    <option value=5 {{ $participant->anak_sd == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -362,12 +362,12 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Anak SMP </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select name="anak_smp" class="form-control">
-                                    <option {{ $participant->anak_smp == 0 ? 'selected' : '' }}>0</option>
-                                    <option {{ $participant->anak_smp == 1 ? 'selected' : '' }}>2</option>
-                                    <option {{ $participant->anak_smp == 2 ? 'selected' : '' }}>1</option>
-                                    <option {{ $participant->anak_smp == 3 ? 'selected' : '' }}>3</option>
-                                    <option {{ $participant->anak_smp == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->anak_smp == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
+                                    <option value=0 {{ $participant->anak_smp == 0 ? 'selected' : '' }}>0</option>
+                                    <option value=1 {{ $participant->anak_smp == 1 ? 'selected' : '' }}>2</option>
+                                    <option value=2 {{ $participant->anak_smp == 2 ? 'selected' : '' }}>1</option>
+                                    <option value=3 {{ $participant->anak_smp == 3 ? 'selected' : '' }}>3</option>
+                                    <option value=4 {{ $participant->anak_smp == 4 ? 'selected' : '' }}>4</option>
+                                    <option value=5 {{ $participant->anak_smp == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -375,12 +375,12 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Anak SMA </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select name="anak_sma" class="form-control">
-                                    <option {{ $participant->anak_sma == 0 ? 'selected' : '' }}>0</option>
-                                    <option {{ $participant->anak_sma == 1 ? 'selected' : '' }}>1</option>
-                                    <option {{ $participant->anak_sma == 2 ? 'selected' : '' }}>2</option>
-                                    <option {{ $participant->anak_sma == 3 ? 'selected' : '' }}>3</option>
-                                    <option {{ $participant->anak_sma == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->anak_sma == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
+                                    <option value=0 {{ $participant->anak_sma == 0 ? 'selected' : '' }}>0</option>
+                                    <option value=1 {{ $participant->anak_sma == 1 ? 'selected' : '' }}>1</option>
+                                    <option value=2 {{ $participant->anak_sma == 2 ? 'selected' : '' }}>2</option>
+                                    <option value=3 {{ $participant->anak_sma == 3 ? 'selected' : '' }}>3</option>
+                                    <option value=4 {{ $participant->anak_sma == 4 ? 'selected' : '' }}>4</option>
+                                    <option value=5 {{ $participant->anak_sma == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -388,12 +388,12 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Disabilitas Berat </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select name="disabilitas_berat" class="form-control">
-                                    <option {{ $participant->disabilitas_berat == 0 ? 'selected' : '' }}>0</option>
-                                    <option {{ $participant->disabilitas_berat == 1 ? 'selected' : '' }}>1</option>
-                                    <option {{ $participant->disabilitas_berat == 2 ? 'selected' : '' }}>2</option>
-                                    <option {{ $participant->disabilitas_berat == 3 ? 'selected' : '' }}>3</option>
-                                    <option {{ $participant->disabilitas_berat == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->disabilitas_berat == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
+                                    <option value=0 {{ $participant->disabilitas_berat == 0 ? 'selected' : '' }}>0</option>
+                                    <option value=1 {{ $participant->disabilitas_berat == 1 ? 'selected' : '' }}>1</option>
+                                    <option value=2 {{ $participant->disabilitas_berat == 2 ? 'selected' : '' }}>2</option>
+                                    <option value=3 {{ $participant->disabilitas_berat == 3 ? 'selected' : '' }}>3</option>
+                                    <option value=4 {{ $participant->disabilitas_berat == 4 ? 'selected' : '' }}>4</option>
+                                    <option value=5 {{ $participant->disabilitas_berat == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>
@@ -401,12 +401,12 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Lanjut Usia </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select name="lanjut_usia" class="form-control">
-                                    <option {{ $participant->lanjut_usia == 0 ? 'selected' : '' }}>0</option>
-                                    <option {{ $participant->lanjut_usia == 1 ? 'selected' : '' }}>1</option>
-                                    <option {{ $participant->lanjut_usia == 2 ? 'selected' : '' }}>2</option>
-                                    <option {{ $participant->lanjut_usia == 3 ? 'selected' : '' }}>3</option>
-                                    <option {{ $participant->lanjut_usia == 4 ? 'selected' : '' }}>4</option>
-                                    <option {{ $participant->lanjut_usia == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
+                                    <option value=0 {{ $participant->lanjut_usia == 0 ? 'selected' : '' }}>0</option>
+                                    <option value=1 {{ $participant->lanjut_usia == 1 ? 'selected' : '' }}>1</option>
+                                    <option value=2 {{ $participant->lanjut_usia == 2 ? 'selected' : '' }}>2</option>
+                                    <option value=3 {{ $participant->lanjut_usia == 3 ? 'selected' : '' }}>3</option>
+                                    <option value=4 {{ $participant->lanjut_usia == 4 ? 'selected' : '' }}>4</option>
+                                    <option value=5 {{ $participant->lanjut_usia == 5 ? 'selected' : '' }}>Lebih Dari 4</option>
                                 </select>
                             </div>
                         </div>

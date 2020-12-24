@@ -17,7 +17,7 @@ class CreateCodascriteriasTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('weight');
-            $table->decimal('weightnormal',20,3);
+            $table->decimal('weightnormal',10,7);
             $table->boolean('active');
             $table->boolean('type');
         });

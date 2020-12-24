@@ -32,8 +32,8 @@ trait CodasMethod
         foreach ($participants as $participant) {
             foreach ($codascriterias as $codascriteria) {
                 $xij = $this->xijselect($codascriteria, $participant);
-                $xijmax = DB::table('participants')->max($this->criteriaselect($codascriteria)) + 1;
-                $xijmin = DB::table('participants')->min($this->criteriaselect($codascriteria)) + 1;
+                $xijmax = DB::table('participants')->max($this->criteriaselect($codascriteria));
+                $xijmin = DB::table('participants')->min($this->criteriaselect($codascriteria));
                 // Normalisasi Nilai Performa
                 if($codascriteria->type == 1)
                     {
@@ -61,14 +61,15 @@ trait CodasMethod
             $eit = 0;
             $Ti = 0;
             foreach ($codascriterias as $codascriteria) {
-                $rij = $this->rjselect($codascriteria, $participant);
+                $rij = $this->rjselect($codascriteria->id, $participant);
                 // Menentukan Solusi Ideal-Negatif (nsj)
-                $nsj = DB::table('participants')->min($this->rijselect($codascriteria->id));
+                $nsj = DB::table('participants')->where('status_verifikasi', 1)->min($this->rijselect($codascriteria->id));
                 //
-                $ei = pow( ($rij - $nsj) , 2 );
+                $rsjnsj = $rij - $nsj;
+                $ei = pow($rsjnsj , 2);
                 $eit = $eit + $ei;
-                $ti = abs($rij-$nsj);
-                $Ti = $Ti + $ti;
+                $tit = abs($rsjnsj);
+                $Ti = $Ti + $tit;
             }
             $Ei = sqrt($eit);
             participant::where('id', $participant->id)->update([
@@ -177,7 +178,6 @@ trait CodasMethod
             
             
         
-                // $pkhtotal = $pkh1*$participant->ibu_hamil + $pkh2*$participant->usia_dini + $pkh3*$participant->anak_sd + $pkh4*$participant->anak_smp + $pkh5*$participant->anak_sma + $pkh6*$participant->disabilitas_berat + $pkh7*$participant->lanjut_usia;
             if($participant->status_verifikasi == 1)
             {
                 if($method <= 2){    
@@ -255,18 +255,30 @@ trait CodasMethod
     public function countrh()
     {
         $participants = DB::select('select * from participants where status_verifikasi = 1');
+        $iterasi = DB::table('participants')->where('status_verifikasi', 1)->count();
         // Menghitung Matriks Penilaian Relatif (Ra) dan Hasil Penilaian (Hi) pada alternatif
         foreach ($participants as $participant) {
             $Hi = 0;
             $Ei = $participant->Ei;
             $Ti = $participant->Ti;
-            foreach ($participants as $participant2) {
-                $Ek = $participant2->Ei;
-                $Tk = $participant2->Ti;
+            $i = 1;
+            while ($i <= $iterasi) {
                 $par = DB::table('variablesets')->where('id', '1')->value('parameter');
-                $Eik = $Ei - $Ek;
-                $hik = $Eik + ($this->abcount($Eik , $par) * ($Ti - $Tk));
+                $Ek = DB::table('participants')->where('id', $i)->value('Ei');
+                $Tk = DB::table('participants')->where('id', $i)->value('Ti');
+                $Tik = $Ti - $Tk;
+                $Eik = abs($Ei - $Ek);
+                if($Eik >= $par)
+                {
+                    $ab = 1;
+                }
+                elseif($Eik < $par)
+                {
+                    $ab = 0;
+                }
+                $hik = ($Ei - $Ek) + ($ab * $Tik);
                 $Hi = $Hi + $hik;
+                $i++;
             }
             participant::where('id', $participant->id)->update([
                 'Hi' => $Hi,
@@ -275,19 +287,6 @@ trait CodasMethod
     }
 
 
-    public function abcount($x, $y)
-    {
-        if(abs($x) >= $y)
-        {
-            $z=1;
-        }
-        else
-        {
-            $z=0;
-        }
-        return $z;
-    }
-
     //
 
     public function xijselect($codascriteria, $participant)
@@ -295,67 +294,67 @@ trait CodasMethod
         
         if($codascriteria->id == 1) 
         {
-            $xij = $participant->pendapatan + 1;
+            $xij = $participant->pendapatan;
         }
         elseif($codascriteria->id == 2)
         {
-            $xij = $participant->tabungan + 1;
+            $xij = $participant->tabungan;
         }
         elseif($codascriteria->id == 3)
         {
-            $xij = $participant->luas_bangunan + 1;
+            $xij = $participant->luas_bangunan;
         }
         elseif($codascriteria->id == 4)
         {
-            $xij = $participant->luas_tanah + 1;
+            $xij = $participant->luas_tanah;
         }
         elseif($codascriteria->id == 5)
         {
-            $xij = $participant->fasilitas_bab + 1;
+            $xij = $participant->fasilitas_bab;
         }
         elseif($codascriteria->id == 6)
         {
-            $xij = $participant->jenis_lantai + 1;
+            $xij = $participant->jenis_lantai;
         }
         elseif($codascriteria->id == 7)
         {
-            $xij = $participant->jenis_dinding + 1;
+            $xij = $participant->jenis_dinding;
         }
         elseif($codascriteria->id == 8)
         {
-            $xij = $participant->sumber_air_bersih + 1;
+            $xij = $participant->sumber_air_bersih;
         }
         elseif($codascriteria->id == 9)
         {
-            $xij = $participant->biaya_pengobatan + 1;
+            $xij = $participant->biaya_pengobatan;
         }
         elseif($codascriteria->id == 10)
         {
-            $xij = $participant->pemakaian_listrik + 1;
+            $xij = $participant->pemakaian_listrik;
         }
         elseif($codascriteria->id == 11)
         {
-            $xij = $participant->bahan_bakar_masak + 1;
+            $xij = $participant->bahan_bakar_masak;
         }
         elseif($codascriteria->id == 12)
         {
-            $xij = $participant->konsumsi_dsa + 1;
+            $xij = $participant->konsumsi_dsa;
         }
         elseif($codascriteria->id == 13)
         {
-            $xij = $participant->membeli_pakaian + 1;
+            $xij = $participant->membeli_pakaian;
         }
         elseif($codascriteria->id == 14)
         {
-            $xij = $participant->makan_perhari + 1;
+            $xij = $participant->makan_perhari;
         }
         elseif($codascriteria->id == 15)
         {
-            $xij = $participant->pendidikan_krt + 1;
+            $xij = $participant->pendidikan_krt;
         }
         elseif($codascriteria->id == 16)
         {
-            $xij = $participant->kendaraan_pribadi + 1;
+            $xij = $participant->kendaraan_pribadi;
         }
         return $xij;
     }
@@ -434,73 +433,138 @@ trait CodasMethod
 
     //
 
-    public function rjselect($codascriteria, $participant)
+    public function rjselect($c, $p)
     {
         
-        if($codascriteria->id == 1) 
+        if($c == 1) 
         {
-            $rj = $participant->pendapatan;
+            $rj = $p->ri1;
         }
-        elseif($codascriteria->id == 2)
+        elseif($c == 2)
         {
-            $rj = $participant->tabungan;
+            $rj = $p->ri2;
         }
-        elseif($codascriteria->id == 3)
+        elseif($c == 3)
         {
-            $rj = $participant->luas_bangunan;
+            $rj = $p->ri3;
         }
-        elseif($codascriteria->id == 4)
+        elseif($c == 4)
         {
-            $rj = $participant->luas_tanah;
+            $rj = $p->ri4;
         }
-        elseif($codascriteria->id == 5)
+        elseif($c == 5)
         {
-            $rj = $participant->fasilitas_bab;
+            $rj = $p->ri5;
         }
-        elseif($codascriteria->id == 6)
+        elseif($c == 6)
         {
-            $rj = $participant->jenis_lantai;
+            $rj = $p->ri6;
         }
-        elseif($codascriteria->id == 7)
+        elseif($c == 7)
         {
-            $rj = $participant->jenis_dinding;
+            $rj = $p->ri7;
         }
-        elseif($codascriteria->id == 8)
+        elseif($c == 8)
         {
-            $rj = $participant->sumber_air_bersih;
+            $rj = $p->ri8;
         }
-        elseif($codascriteria->id == 9)
+        elseif($c == 9)
         {
-            $rj = $participant->biaya_pengobatan;
+            $rj = $p->ri9;
         }
-        elseif($codascriteria->id == 10)
+        elseif($c == 10)
         {
-            $rj = $participant->pemakaian_listrik;
+            $rj = $p->ri10;
         }
-        elseif($codascriteria->id == 11)
+        elseif($c == 11)
         {
-            $rj = $participant->bahan_bakar_masak;
+            $rj = $p->ri11;
         }
-        elseif($codascriteria->id == 12)
+        elseif($c == 12)
         {
-            $rj = $participant->konsumsi_dsa;
+            $rj = $p->ri12;
         }
-        elseif($codascriteria->id == 13)
+        elseif($c == 13)
         {
-            $rj = $participant->membeli_pakaian;
+            $rj = $p->ri13;
         }
-        elseif($codascriteria->id == 14)
+        elseif($c == 14)
         {
-            $rj = $participant->makan_perhari;
+            $rj = $p->ri14;
         }
-        elseif($codascriteria->id == 15)
+        elseif($c == 15)
         {
-            $rj = $participant->pendidikan_krt;
+            $rj = $p->ri15;
         }
-        elseif($codascriteria->id == 16)
+        elseif($c == 16)
         {
-            $rj = $participant->kendaraan_pribadi;
+            $rj = $p->ri16;
         }
+                
+        // if($c == 1) 
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 2)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 3)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 4)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 5)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 6)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 7)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 8)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 9)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 10)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 11)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 12)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 13)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 14)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 15)
+        // {
+        //     $rj = 1;
+        // }
+        // elseif($c == 16)
+        // {
+        //     $rj = 1;
+        // }
         return $rj;
     }
 

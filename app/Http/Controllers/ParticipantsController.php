@@ -23,6 +23,12 @@ class ParticipantsController extends Controller
         return view('participant', compact('participants'));
     }
 
+    public function index2()
+    {
+        $participants = DB::select('select * from participants where status_verifikasi = 1');
+        return view('participantv', compact('participants'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -147,7 +153,6 @@ class ParticipantsController extends Controller
             'disabilitas_berat' => $request->disabilitas_berat,
             'lanjut_usia' => $request->lanjut_usia,
             'status_verifikasi' => $request->status_verifikasi,
-            'nilai_codas' => 0
         ]);
         return redirect('/participants');
     }

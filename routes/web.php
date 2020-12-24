@@ -21,6 +21,8 @@ Route::get('/participants/create', 'ParticipantsController@create');
 
 Route::get('/participants', 'ParticipantsController@index');
 
+Route::get('/participants/verified', 'ParticipantsController@index2');
+
 Route::get('/participants/{participant}', 'ParticipantsController@show');
 
 Route::patch('/participants/{participant}','ParticipantsController@update');
