@@ -28,7 +28,7 @@
                                     <th scope = "col">No.</th>
                                     <th scope = "col">Nama Kriteria</th>
                                     <th scope = "col">Bobot</th>
-                                    <th scope = "col">Aktif</th>
+                                    <th scope = "col">Status</th>
                                     <th scope = "col">Tipe Kriteria</th>
                                     <th scope = "col">Action</th>
                                 </tr>
@@ -46,13 +46,18 @@
                                         <td>{{ $no }}</td>
                                         <td>{{ $codascriteria -> name }}</td>
                                         <td>{{ $codascriteria -> weight }}</td>
-                                        <td>{{ $codascriteria -> active }}</td>
-                                        <td>{{ $codascriteria -> type }}</td>
-                                        <!-- @if ($codascriteria -> type = 0)
+                                        <!-- <td>{{ $codascriteria -> active }}</td> -->
+                                        @if($codascriteria -> active == 1)
+                                        <td>Aktif</td>
+                                        @else
+                                        <td>Nonaktif</td>
+                                        @endif
+                                        <!-- <td>{{ $codascriteria -> type }}</td> -->
+                                        @if ($codascriteria -> type == 0)
                                             <td>Cost</td>
                                         @else
-                                            <td>Costa</td>
-                                        @endif -->
+                                            <td>Benefit</td>
+                                        @endif
                                         <td>
                                             <a href="/criteria/codas/{{ $codascriteria -> id}}" class="badge badge-success">edit</a>
                                         </td>
@@ -96,7 +101,7 @@
                                     <tr>
                                         <td>{{ $no }}</td>
                                         <td>{{ $pkhcriteria -> name }}</td>
-                                        <td>{{ $pkhcriteria -> bantuan }}</td>
+                                        <td>Rp {{ $pkhcriteria -> bantuan }}</td>
                                         <td>
                                             <a href="/criteria/pkh/{{ $pkhcriteria -> id}}" class="badge badge-success">edit</a>
                                         </td>

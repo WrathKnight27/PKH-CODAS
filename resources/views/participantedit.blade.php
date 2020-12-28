@@ -142,6 +142,20 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Hutang </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select name="hutang" class="form-control">
+                            <option value=1 {{ $participant->hutang == 1 ? 'selected' : '' }}>Rp 0 - Rp 1.000.000</option>
+                            <option value=2 {{ $participant->hutang == 2 ? 'selected' : '' }}>Rp 1.000.100 - Rp 2.000.000</option>
+                            <option value=3 {{ $participant->hutang == 3 ? 'selected' : '' }}>Rp 2.000.000 - Rp 4.000.000</option>
+                            <option value=4 {{ $participant->hutang == 4 ? 'selected' : '' }}>Rp 4.000.100 - Rp 6.000.000</option>
+                            <option value=5 {{ $participant->hutang == 5 ? 'selected' : '' }}>Rp 6.000.100 - Rp 8.000.000</option>
+                            <option value=6 {{ $participant->hutang == 6 ? 'selected' : '' }}>Rp 8.000.100 - Rp 10.000.000</option>
+                            <option value=7 {{ $participant->hutang == 7 ? 'selected' : '' }}>Di Atas Rp 10.000.000</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Luas Bangunan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="luas_bangunan" class="form-control">
@@ -170,12 +184,12 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="2" id="opt_bab_1" name="fasilitas_bab" {{ $participant->fasilitas_bab == 1 ? 'checked' : ''}}> Layak
+                                <input type="radio" value="2" id="opt_bab_1" name="fasilitas_bab" {{ $participant->fasilitas_bab == 2 ? 'checked' : ''}}> Layak
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="1" id="opt_bab_2" name="fasilitas_bab" {{ $participant->fasilitas_bab == 0 ? 'checked' : ''}}> Tidak Layak
+                                <input type="radio" value="1" id="opt_bab_2" name="fasilitas_bab" {{ $participant->fasilitas_bab == 1 ? 'checked' : ''}}> Tidak Layak
                                 </label>
                             </div>
                         </div>
@@ -185,12 +199,12 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="2" id="opt_floor_1" name="jenis_lantai" {{ $participant->jenis_lantai == 1 ? 'checked' : ''}}> Layak
+                                <input type="radio" value="2" id="opt_floor_1" name="kelayakan_lantai" {{ $participant->kelayakan_lantai == 2 ? 'checked' : ''}}> Layak
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="1" id="opt_floor_2" name="jenis_lantai" {{ $participant->jenis_lantai == 0 ? 'checked' : ''}}> Tidak Layak
+                                <input type="radio" value="1" id="opt_floor_2" name="kelayakan_lantai" {{ $participant->kelayakan_lantai == 1 ? 'checked' : ''}}> Tidak Layak
                                 </label>
                             </div>
                         </div>
@@ -200,12 +214,27 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="2" id="opt_wall_1" name="jenis_dinding" {{ $participant->jenis_dinding == 1 ? 'checked' : ''}}> Layak
+                                <input type="radio" value="2" id="opt_wall_1" name="kelayakan_dinding" {{ $participant->kelayakan_dinding == 2 ? 'checked' : ''}}> Layak
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="1" id="opt_wall_2" name="jenis_dinding" {{ $participant->jenis_dinding == 0 ? 'checked' : ''}}> Tidak Layak
+                                <input type="radio" value="1" id="opt_wall_2" name="kelayakan_dinding" {{ $participant->kelayakan_dinding == 1 ? 'checked' : ''}}> Tidak Layak
+                                </label>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Atap Rumah </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="radio">
+                                <label>
+                                <input type="radio" value="2" id="opt_wall_1" name="kelayakan_atap" {{ $participant->kelayakan_atap == 2 ? 'checked' : ''}}> Layak
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" value="1" id="opt_wall_2" name="kelayakan_atap" {{ $participant->kelayakan_atap == 1 ? 'checked' : ''}}> Tidak Layak
                                 </label>
                             </div>
                         </div>
@@ -246,17 +275,6 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Bahan Bakar Memasak </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select name="bahan_bakar_masak" class="form-control">
-                            <option value=1 {{ $participant->bahan_bakar_masak == 1 ? 'selected' : '' }}>Kayu Bakar</option>
-                            <option value=2 {{ $participant->bahan_bakar_masak == 2 ? 'selected' : '' }}>Elpiji 3KG</option>
-                            <option value=3 {{ $participant->bahan_bakar_masak == 3 ? 'selected' : '' }}>Bright Gas 5,5KG</option>
-                            <option value=4 {{ $participant->bahan_bakar_masak == 4 ? 'selected' : '' }}>Elpiji / Bright Gas 12KG</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Konsumsi Protein </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <select name="konsumsi_dsa" class="form-control">
@@ -267,18 +285,6 @@
                             <option value=5 {{ $participant->konsumsi_dsa == 5 ? 'selected' : '' }}>4-7 Kali Seminggu</option>
                           </select>
                           </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Membeli Pakaian </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select name="membeli_pakaian" class="form-control">
-                            <option value=1 {{ $participant->membeli_pakaian == 1 ? 'selected' : '' }}>0-1 Kali dalam 1 Tahun</option>
-                            <option value=2 {{ $participant->membeli_pakaian == 2 ? 'selected' : '' }}>2-3 Kali dalam 1 Tahun</option>
-                            <option value=3 {{ $participant->membeli_pakaian == 3 ? 'selected' : '' }}>4-5 Kali dalam 1 Tahun</option>
-                            <option value=4 {{ $participant->membeli_pakaian == 4 ? 'selected' : '' }}>6-7 Kali dalam 1 Tahun</option>
-                            <option value=5 {{ $participant->membeli_pakaian == 5 ? 'selected' : '' }}>Di Atas 7 Kali dalam 1 Tahun</option>
-                          </select>
-                        </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Makan Perhari </label>

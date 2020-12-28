@@ -44,7 +44,7 @@ class PagesController extends Controller
 
     public function codasresult()
     {
-        $participants = DB::select('select * from participants where status_codas = 1');
+        $participants = DB::select('select * from participants where status_verifikasi = 1');
         return view('resultcodas', compact('participants'));
     }
 

@@ -27,17 +27,17 @@ class CreateParticipantsTable extends Migration
             $table->string('alamat_no_rumah');
             $table->integer('pendapatan');
             $table->integer('tabungan');
+            $table->integer('hutang');
             $table->integer('luas_bangunan');
             $table->integer('luas_tanah');
             $table->integer('fasilitas_bab');
-            $table->integer('jenis_lantai');
-            $table->integer('jenis_dinding');
-            $table->integer('sumber_air_bersih');
+            $table->integer('kelayakan_lantai');
+            $table->integer('kelayakan_dinding');
+            $table->integer('kelayakan_atap');
             $table->integer('biaya_pengobatan');
             $table->integer('pemakaian_listrik');
-            $table->integer('bahan_bakar_masak');
+            $table->integer('sumber_air_bersih');
             $table->integer('konsumsi_dsa');
-            $table->integer('membeli_pakaian');
             $table->integer('makan_perhari');
             $table->integer('pendidikan_krt');
             $table->integer('kendaraan_pribadi');
@@ -70,7 +70,7 @@ class CreateParticipantsTable extends Migration
             $table->decimal('ri16',10,7)->nullable()->default(NULL);
             $table->decimal('Ei',10,7)->nullable()->default(NULL);
             $table->decimal('Ti',10,7)->nullable()->default(NULL);
-            $table->decimal('Hi',10,7)->nullable()->default(NULL);
+            $table->decimal('Hi',20,7)->nullable()->default(NULL);
             $table->integer('rank')->nullable()->default(NULL);
         });
     }

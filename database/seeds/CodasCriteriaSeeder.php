@@ -14,7 +14,7 @@ class CodasCriteriaSeeder extends Seeder
         DB::table('codascriterias')->insert(
             [
                 'name' => 'Penghasilan',
-                'weight' => 9,
+                'weight' => 10,
                 'weightnormal' => '9',
                 'active' => 1,
                 'type' => 0,
@@ -23,10 +23,19 @@ class CodasCriteriaSeeder extends Seeder
         DB::table('codascriterias')->insert(
             [
                 'name' => 'Tabungan',
-                'weight' => 9,
+                'weight' => 8,
                 'weightnormal' => '9',
                 'active' => 1,
                 'type' => 0,
+            ]
+        );
+        DB::table('codascriterias')->insert(
+            [
+                'name' => 'Hutang',
+                'weight' => 8,
+                'weightnormal' => '9',
+                'active' => 1,
+                'type' => 1,
             ]
         );
         DB::table('codascriterias')->insert(
@@ -49,15 +58,6 @@ class CodasCriteriaSeeder extends Seeder
         );
         DB::table('codascriterias')->insert(
             [
-                'name' => 'Jenis Lantai',
-                'weight' => 6,
-                'weightnormal' => '6',
-                'active' => 1,
-                'type' => 0,
-            ]
-        );
-        DB::table('codascriterias')->insert(
-            [
                 'name' => 'Fasilitas BAB',
                 'weight' => 8,
                 'weightnormal' => '8',
@@ -67,7 +67,25 @@ class CodasCriteriaSeeder extends Seeder
         );
         DB::table('codascriterias')->insert(
             [
-                'name' => 'Jenis Dinding',
+                'name' => 'Kelayakan Lantai Rumah',
+                'weight' => 6,
+                'weightnormal' => '6',
+                'active' => 1,
+                'type' => 0,
+            ]
+        );
+        DB::table('codascriterias')->insert(
+            [
+                'name' => 'Kelayakan Dinding Rumah',
+                'weight' => 6,
+                'weightnormal' => '6',
+                'active' => 1,
+                'type' => 0,
+            ]
+        );
+        DB::table('codascriterias')->insert(
+            [
+                'name' => 'Kelayakan Atap Rumah',
                 'weight' => 6,
                 'weightnormal' => '6',
                 'active' => 1,
@@ -85,7 +103,7 @@ class CodasCriteriaSeeder extends Seeder
         );
         DB::table('codascriterias')->insert(
             [
-                'name' => 'Pemakaian Listrik',
+                'name' => 'Kebutuhan Listrik',
                 'weight' => 6,
                 'weightnormal' => '6',
                 'active' => 1,
@@ -103,27 +121,9 @@ class CodasCriteriaSeeder extends Seeder
         );
         DB::table('codascriterias')->insert(
             [
-                'name' => 'Bahan Bakar Memasak',
-                'weight' => 5,
-                'weightnormal' => '5',
-                'active' => 1,
-                'type' => 0,
-            ]
-        );
-        DB::table('codascriterias')->insert(
-            [
                 'name' => 'Konsumsi Daging Susu Ayam',
                 'weight' => 8,
                 'weightnormal' => '8',
-                'active' => 1,
-                'type' => 0,
-            ]
-        );
-        DB::table('codascriterias')->insert(
-            [
-                'name' => 'Membeli Pakaian',
-                'weight' => 5,
-                'weightnormal' => '5',
                 'active' => 1,
                 'type' => 0,
             ]

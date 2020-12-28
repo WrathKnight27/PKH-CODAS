@@ -38,6 +38,7 @@
                                     <th>No. KK</th>
                                     <th>Nama Kepala Keluarga</th>
                                     <th>Nilai</th>
+                                    <th>Status Seleksi</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -50,6 +51,12 @@
                                         <td>{{$participant -> no_kk}}</td>
                                         <td>{{$participant -> nama_krt}}</td>
                                         <td>{{$participant -> Hi}}</td>
+                                        <!-- <td>{{$participant -> status_codas}}</td> -->
+                                        @if ($participant->status_codas == 1)
+                                        <td>Lolos</td>
+                                        @else 
+                                        <td>Tidak Lolos</td>
+                                        @endif
                                         <td>
                                             <a href="/codasresult/{{ $participant -> id }}" class="badge badge-success">lihat</a>
                                         </td>

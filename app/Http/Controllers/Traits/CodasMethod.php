@@ -184,7 +184,7 @@ trait CodasMethod
                     if($i <= $quota) 
                     {
                         $status = 1;
-                        if($pkhtotal > 0)
+                        if($pkhtotal > 550000)
                         {
                             $pkhstatus = 1;
                             $nilaibantuan = $pkhtotal;
@@ -302,47 +302,47 @@ trait CodasMethod
         }
         elseif($codascriteria->id == 3)
         {
-            $xij = $participant->luas_bangunan;
+            $xij = $participant->hutang;
         }
         elseif($codascriteria->id == 4)
         {
-            $xij = $participant->luas_tanah;
+            $xij = $participant->luas_bangunan;
         }
         elseif($codascriteria->id == 5)
         {
-            $xij = $participant->fasilitas_bab;
+            $xij = $participant->luas_tanah;
         }
         elseif($codascriteria->id == 6)
         {
-            $xij = $participant->jenis_lantai;
+            $xij = $participant->fasilitas_bab;
         }
         elseif($codascriteria->id == 7)
         {
-            $xij = $participant->jenis_dinding;
+            $xij = $participant->kelayakan_lantai;
         }
         elseif($codascriteria->id == 8)
         {
-            $xij = $participant->sumber_air_bersih;
+            $xij = $participant->kelayakan_dinding;
         }
         elseif($codascriteria->id == 9)
         {
-            $xij = $participant->biaya_pengobatan;
+            $xij = $participant->kelayakan_atap;
         }
         elseif($codascriteria->id == 10)
         {
-            $xij = $participant->pemakaian_listrik;
+            $xij = $participant->biaya_pengobatan;
         }
         elseif($codascriteria->id == 11)
         {
-            $xij = $participant->bahan_bakar_masak;
+            $xij = $participant->pemakaian_listrik;
         }
         elseif($codascriteria->id == 12)
         {
-            $xij = $participant->konsumsi_dsa;
+            $xij = $participant->sumber_air_bersih;
         }
         elseif($codascriteria->id == 13)
         {
-            $xij = $participant->membeli_pakaian;
+            $xij = $participant->konsumsi_dsa;
         }
         elseif($codascriteria->id == 14)
         {
@@ -500,71 +500,7 @@ trait CodasMethod
         {
             $rj = $p->ri16;
         }
-                
-        // if($c == 1) 
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 2)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 3)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 4)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 5)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 6)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 7)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 8)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 9)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 10)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 11)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 12)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 13)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 14)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 15)
-        // {
-        //     $rj = 1;
-        // }
-        // elseif($c == 16)
-        // {
-        //     $rj = 1;
-        // }
+
         return $rj;
     }
 
@@ -583,47 +519,47 @@ trait CodasMethod
         }
         elseif($codascriteria->id == 3)
         {
-            $criteria = 'luas_bangunan';
+            $criteria = 'hutang';
         }
         elseif($codascriteria->id == 4)
         {
-            $criteria = 'luas_tanah';
+            $criteria = 'luas_bangunan';
         }
         elseif($codascriteria->id == 5)
         {
-            $criteria = 'fasilitas_bab';
+            $criteria = 'luas_tanah';
         }
         elseif($codascriteria->id == 6)
         {
-            $criteria = 'jenis_lantai';
+            $criteria = 'fasilitas_bab';
         }
         elseif($codascriteria->id == 7)
         {
-            $criteria = 'jenis_dinding';
+            $criteria = 'kelayakan_lantai';
         }
         elseif($codascriteria->id == 8)
         {
-            $criteria = 'sumber_air_bersih';
+            $criteria = 'kelayakan_dinding';
         }
         elseif($codascriteria->id == 9)
         {
-            $criteria = 'biaya_pengobatan';
+            $criteria = 'kelayakan_atap';
         }
         elseif($codascriteria->id == 10)
         {
-            $criteria = 'pemakaian_listrik';
+            $criteria = 'biaya_pengobatan';
         }
         elseif($codascriteria->id == 11)
         {
-            $criteria = 'bahan_bakar_masak';
+            $criteria = 'pemakaian_listrik';
         }
         elseif($codascriteria->id == 12)
         {
-            $criteria = 'konsumsi_dsa';
+            $criteria = 'sumber_air_bersih';
         }
         elseif($codascriteria->id == 13)
         {
-            $criteria = 'membeli_pakaian';
+            $criteria = 'konsumsi_dsa';
         }
         elseif($codascriteria->id == 14)
         {

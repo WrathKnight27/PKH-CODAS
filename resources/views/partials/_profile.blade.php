@@ -44,11 +44,31 @@
                     <div class="col-sm-4 invoice-col">
                     <strong>Status</strong>
                         <address>
-                            <br><strong>Verifikasi Data :</strong> {{$participant->status_verifikasi}}
-                            <br><strong>Seleksi T1 :</strong> {{$participant->status_codas}}
-                            <br><strong>Seleksi T2 :</strong> {{$participant->status_pkh}}
+                            <br><strong>Verifikasi Data :</strong> 
+                            @if ($participant->status_verifikasi == 1)
+                            Sudah Terverifikasi
+                            @else 
+                            Belum Terverifikasi
+                            @endif
+                            <br><strong>Seleksi Tahap 1 :</strong> 
+                            @if ($participant->status_codas == 1)
+                            Lolos
+                            @else 
+                            Tidak Lolos
+                            @endif
+                            <br><strong>Seleksi Tahap 2 :</strong> 
+                            @if ($participant->status_pkh == 1)
+                            Lolos
+                            @else 
+                            Tidak Lolos
+                            @endif
                             <br><strong>Ranking :</strong> {{$participant->rank}}
-                            <br><strong>Nilai Bantuan :</strong> {{$participant->nilai_bantuan}}
+                            <br><strong>Nilai Bantuan :</strong> 
+                            @if ($participant->nilai_bantuan > 550000)
+                            Rp {{$participant->nilai_bantuan}}
+                            @else 
+                            -
+                            @endif
                         </address>
                     </div>
                     <!-- /.col -->
@@ -81,114 +101,252 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- <?php
-                                        $id = 1234567;
-                                        $nama = 'Kriteria X';
-                                        $weight = 20;
-                                        $weightnormal = 20;
-                                    ?> -->
                                         <tr>
                                             <td>1</td>
                                             <td>Pendapatan</td>
-                                            @if ($participant->pendapatan = 0)
+                                            @if ($participant->pendapatan == 1)
                                                 <td>Rp 0 - 500.000</td>
-                                            @elseif ($participant->pendapatan = 1)
-                                                <td>Rp 500.001 - 2.000.000</td>
-                                            @elseif ($participant->pendapatan = 2)
-                                                <td>Rp 2.000.001 - 5.000.000</td>
-                                            @elseif ($participant->pendapatan = 3)
-                                                <td>Di atas Rp 5.000.001</td>
+                                            @elseif ($participant->pendapatan == 2)
+                                                <td>Rp 500.100 - 1.000.000</td>
+                                            @elseif ($participant->pendapatan == 3)
+                                                <td>Rp 1.000.100 - 2.000.000</td>
+                                            @elseif ($participant->pendapatan == 4)
+                                                <td>Rp 2.000.100 - 3.000.000</td>
+                                            @elseif ($participant->pendapatan == 5)
+                                                <td>Rp 3.000.100 - 5.000.000</td>
+                                            @elseif ($participant->pendapatan == 6)
+                                                <td>Rp 5.000.100 - 7.000.000</td>
+                                            @elseif ($participant->pendapatan == 7)
+                                                <td>Di atas Rp 7.000.001</td>
                                             @endif
-                                            <td>{{ $participant -> pendapatan }}</td>
+                                            <!-- <td>n</td> -->
+                                            <!-- <td>{{ $participant -> pendapatan }}</td> -->
+                                            <td>{{ $participant->pendapatan }}</td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>Tabungan</td>
-                                            <td>n</td>
+                                            @if ($participant->tabungan == 1)
+                                                <td>Rp 0 - 1.000.000</td>
+                                            @elseif ($participant->tabungan == 2)
+                                                <td>Rp 1.000.100 - 2.000.000</td>
+                                            @elseif ($participant->tabungan == 3)
+                                                <td>Rp 2.000.100 - 4.000.000</td>
+                                            @elseif ($participant->tabungan == 4)
+                                                <td>Rp 4.000.100 - 6.000.000</td>
+                                            @elseif ($participant->tabungan == 5)
+                                                <td>Rp 6.000.100 - 8.000.000</td>
+                                            @elseif ($participant->tabungan == 6)
+                                                <td>Rp 8.000.100 - 10.000.000</td>
+                                            @elseif ($participant->tabungan == 7)
+                                                <td>Di atas Rp 10.000.001</td>
+                                            @endif
                                             <td>{{ $participant -> tabungan }}</td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>Luas Bangunan</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> luas_bangunan }}</td>
+                                            <td>Hutang</td>
+                                            @if ($participant->hutang == 1)
+                                                <td>Rp 0 - 1.000.000</td>
+                                            @elseif ($participant->hutang == 2)
+                                                <td>Rp 1.000.100 - 2.000.000</td>
+                                            @elseif ($participant->hutang == 3)
+                                                <td>Rp 2.000.100 - 4.000.000</td>
+                                            @elseif ($participant->hutang == 4)
+                                                <td>Rp 4.000.100 - 6.000.000</td>
+                                            @elseif ($participant->hutang == 5)
+                                                <td>Rp 6.000.100 - 8.000.000</td>
+                                            @elseif ($participant->hutang == 6)
+                                                <td>Rp 8.000.100 - 10.000.000</td>
+                                            @elseif ($participant->hutang == 7)
+                                                <td>Di atas Rp 10.000.001</td>
+                                            @endif
+                                            <td>{{ $participant -> hutang }}</td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td>Luas Tanah</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> luas_tanah }}</td>
+                                            <td>Luas Bangunan</td>
+                                            @if ($participant->luas_bangunan == 1)
+                                                <td>0 - 10 meter persegi</td>
+                                            @elseif ($participant->luas_bangunan == 2)
+                                                <td>11 - 20 meter persegi</td>
+                                            @elseif ($participant->luas_bangunan == 3)
+                                                <td>21 - 30 meter persegi</td>
+                                            @elseif ($participant->luas_bangunan == 4)
+                                                <td>31 - 40 meter persegi</td>
+                                            @elseif ($participant->luas_bangunan == 5)
+                                                <td>Di atas 40 meter persegi</td>
+                                            @endif
+                                            <td>{{ $participant -> luas_bangunan }}</td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
-                                            <td>Jenis Lantai</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> jenis_lantai }}</td>
+                                            <td>Luas Tanah</td>
+                                            @if ($participant->luas_tanah == 1)
+                                                <td>0 - 20 meter persegi</td>
+                                            @elseif ($participant->luas_tanah == 2)
+                                                <td>21 - 40 meter persegi</td>
+                                            @elseif ($participant->luas_tanah == 3)
+                                                <td>41 - 60 meter persegi</td>
+                                            @elseif ($participant->luas_tanah == 4)
+                                                <td>61 - 80 meter persegi</td>
+                                            @elseif ($participant->luas_tanah == 5)
+                                                <td>Di atas 80 meter persegi</td>
+                                            @endif
+                                            <td>{{ $participant -> luas_tanah }}</td>
                                         </tr>
                                         <tr>
                                             <td>6</td>
-                                            <td>Fasilitas BAB</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> fasilitas_bab }}</td>
+                                            <td>Kelayakan Lantai Rumah</td>
+                                            @if ($participant->kelayakan_lantai == 1)
+                                                <td>Tidak Layak</td>
+                                            @elseif ($participant->kelayakan_lantai == 2)
+                                                <td>Layak</td>
+                                            @endif
+                                            <td>{{ $participant -> kelayakan_lantai }}</td>
                                         </tr>
                                         <tr>
                                             <td>7</td>
-                                            <td>Jenis Dinding</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> jenis_dinding }}</td>
+                                            <td>Kelayakan Dinding Rumah</td>
+                                            @if ($participant->kelayakan_dinding == 1)
+                                                <td>Tidak Layak</td>
+                                            @elseif ($participant->kelayakan_dinding == 2)
+                                                <td>Layak</td>
+                                            @endif
+                                            <td>{{ $participant -> kelayakan_dinding }}</td>
                                         </tr>
                                         <tr>
                                             <td>8</td>
-                                            <td>Biaya Pengobatan</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> biaya_pengobatan }}</td>
+                                            <td>Kelayakan Atap Rumah</td>
+                                            @if ($participant->kelayakan_atap == 1)
+                                                <td>Tidak Layak</td>
+                                            @elseif ($participant->kelayakan_atap == 2)
+                                                <td>Layak</td>
+                                            @endif
+                                            <td>{{ $participant -> kelayakan_atap }}</td>
                                         </tr>
                                         <tr>
                                             <td>9</td>
-                                            <td>Penggunaan Listrik</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> pemakaian_listrik }}</td>
+                                            <td>Fasilitas BAB</td>
+                                            @if ($participant->fasilitas_bab == 1)
+                                                <td>Tidak Layak</td>
+                                            @elseif ($participant->fasilitas_bab == 2)
+                                                <td>Layak</td>
+                                            @endif
+                                            <td>{{ $participant -> fasilitas_bab }}</td>
                                         </tr>
                                         <tr>
                                             <td>10</td>
-                                            <td>Sumber Air Bersih</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> sumber_air_bersih }}</td>
+                                            <td>Biaya Pengobatan</td>
+                                            @if ($participant->biaya_pengobatan == 1)
+                                                <td>Rp 0 - 200.000</td>
+                                            @elseif ($participant->biaya_pengobatan == 2)
+                                                <td>Rp 200.100 - 500.000</td>
+                                            @elseif ($participant->biaya_pengobatan == 3)
+                                                <td>Di atas Rp 500.000</td>  
+                                            @endif
+                                            <td>{{ $participant -> biaya_pengobatan }}</td>
                                         </tr>
                                         <tr>
                                             <td>11</td>
-                                            <td>Bahan Bakar Memasak</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> bahan_bakar_masak }}</td>
+                                            <td>Kebutuhan Listrik</td>
+                                            @if ($participant->pemakaian_listrik == 1)
+                                                <td>Tidak Ada</td>
+                                            @elseif ($participant->pemakaian_listrik == 2)
+                                                <td>450 VA</td>
+                                            @elseif ($participant->pemakaian_listrik == 3)
+                                                <td>900 VA</td>
+                                            @elseif ($participant->pemakaian_listrik == 4)
+                                                <td>1300 VA</td>
+                                            @elseif ($participant->pemakaian_listrik == 5)
+                                                <td>2200 VA</td>
+                                            @elseif ($participant->pemakaian_listrik == 6)
+                                                <td>5500 VA</td>
+                                            @elseif ($participant->pemakaian_listrik == 7)
+                                                <td>14.000 VA</td>
+                                            @elseif ($participant->pemakaian_listrik == 8)
+                                                <td>200.000 VA</td>
+                                            @endif
+                                            <td>{{ $participant -> pemakaian_listrik }}</td>
                                         </tr>
                                         <tr>
                                             <td>12</td>
-                                            <td>Konsumsi Daging Susu Ayam</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> konsumsi_dsa }}</td>
+                                            <td>Sumber Air Bersih</td>
+                                            @if ($participant->sumber_air_bersih == 1)
+                                                <td>Sumur / Sungai / Air Hujan</td>
+                                            @elseif ($participant->sumber_air_bersih == 2)
+                                                <td>Air Ledeng PDAM</td>
+                                            @elseif ($participant->sumber_air_bersih == 3)
+                                                <td>Air Kemasan Bermerk / Isi Ulang</td>  
+                                            @endif
+                                            <td>{{ $participant -> sumber_air_bersih }}</td>
                                         </tr>
                                         <tr>
                                             <td>13</td>
-                                            <td>Membeli Pakaian</td>
-                                            <td>n</td>
-                                            <td>{{ $participant -> membeli_pakaian }}</td>
+                                            <td>Konsumsi Daging Susu Ayam</td>
+                                            @if ($participant->konsumsi_dsa == 1)
+                                                <td>Tidak Ada</td>
+                                            @elseif ($participant->konsumsi_dsa == 2)
+                                                <td>1 Kali Seminggu</td>
+                                            @elseif ($participant->konsumsi_dsa == 3)
+                                                <td>2 Kali Seminggu</td>
+                                            @elseif ($participant->konsumsi_dsa == 4)
+                                                <td>3 Kali Seminggu</td>  
+                                            @elseif ($participant->konsumsi_dsa == 5)
+                                                <td>4-7 Kali Seminggu</td>  
+                                            @endif
+                                            <td>{{ $participant -> konsumsi_dsa }}</td>
                                         </tr>
                                         <tr>
                                             <td>14</td>
                                             <td>Makan Perhari</td>
-                                            <td>n</td>
+                                            @if ($participant->makan_perhari == 1)
+                                                <td>1x</td>
+                                            @elseif ($participant->makan_perhari == 2)
+                                                <td>2x</td>
+                                            @elseif ($participant->makan_perhari == 3)
+                                                <td>3x</td>  
+                                            @endif
                                             <td>{{ $participant -> makan_perhari }}</td>
                                         </tr>
                                         <tr>
                                             <td>15</td>
                                             <td>Pendidikan Kepala Rumah Tangga</td>
-                                            <td>n</td>
+                                            @if ($participant->makan_perhari == 1)
+                                                <td>Tidak Sekolah</td>
+                                            @elseif ($participant->pendidikan_krt == 2)
+                                                <td>SD</td>
+                                            @elseif ($participant->pendidikan_krt == 3)
+                                                <td>SMP</td>  
+                                            @elseif ($participant->pendidikan_krt == 4)
+                                                <td>SMA</td>  
+                                            @elseif ($participant->pendidikan_krt == 5)
+                                                <td>D3</td>  
+                                            @elseif ($participant->pendidikan_krt == 6)
+                                                <td>S1</td>  
+                                            @elseif ($participant->pendidikan_krt == 7)
+                                                <td>S2</td>  
+                                            @elseif ($participant->pendidikan_krt == 8)
+                                                <td>S3</td>  
+                                            @endif
                                             <td>{{ $participant -> pendidikan_krt }}</td>
                                         </tr>
                                         <tr>
                                             <td>16</td>
                                             <td>Kendaraan Pribadi</td>
-                                            <td>n</td>
+                                            @if ($participant->kendaraan_pribadi == 1)
+                                                <td>Rp 0 - 1.000.000</td>  
+                                            @elseif ($participant->kendaraan_pribadi == 2)
+                                                <td>Rp 1.000.100 - 3.000.000</td>  
+                                            @elseif ($participant->kendaraan_pribadi == 3)
+                                                <td>Rp 3.000.100 - 5.000.000</td>  
+                                            @elseif ($participant->kendaraan_pribadi == 4)
+                                                <td>Rp 5.000.100 - 8.000.000</td>  
+                                            @elseif ($participant->kendaraan_pribadi == 5)
+                                                <td>Rp 8.000.100 - 15.000.000</td>  
+                                            @elseif ($participant->kendaraan_pribadi == 6)
+                                                <td>Di Atas Rp 15.000.000</td>  
+                                            @endif
                                             <td>{{ $participant -> kendaraan_pribadi }}</td>
                                         </tr>
                                 </tbody>

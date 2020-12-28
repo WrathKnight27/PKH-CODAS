@@ -141,6 +141,20 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Hutang </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select name="hutang" class="form-control">
+                            <option value=1>Rp 0 - Rp 1.000.000</option>
+                            <option value=2>Rp 1.000.100 - Rp 2.000.000</option>
+                            <option value=3>Rp 2.000.000 - Rp 4.000.000</option>
+                            <option value=4>Rp 4.000.100 - Rp 6.000.000</option>
+                            <option value=5>Rp 6.000.100 - 8.000.000</option>
+                            <option value=6>Rp 8.000.100 - 10.000.000</option>
+                            <option value=7>Di Atas Rp 10.000.000</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Luas Bangunan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="luas_bangunan" class="form-control">
@@ -184,12 +198,12 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="radio">
                                 <label>
-                                <input type="radio" checked="" value="2" id="opt_floor_1" name="jenis_lantai"> Layak
+                                <input type="radio" checked="" value="2" id="opt_floor_1" name="kelayakan_lantai"> Layak
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="1" id="opt_floor_2" name="jenis_lantai"> Tidak Layak
+                                <input type="radio" value="1" id="opt_floor_2" name="kelayakan_lantai"> Tidak Layak
                                 </label>
                             </div>
                         </div>
@@ -199,12 +213,27 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="radio">
                                 <label>
-                                <input type="radio" checked="" value="2" id="opt_wall_1" name="jenis_dinding"> Layak
+                                <input type="radio" checked="" value="2" id="opt_wall_1" name="kelayakan_dinding"> Layak
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                <input type="radio" value="1" id="opt_wall_2" name="jenis_dinding"> Tidak Layak
+                                <input type="radio" value="1" id="opt_wall_2" name="kelayakan_dinding"> Tidak Layak
+                                </label>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Atap Rumah </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="radio">
+                                <label>
+                                <input type="radio" checked="" value="2" id="opt_roof_1" name="kelayakan_atap"> Layak
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" value="1" id="opt_roof_2" name="kelayakan_atap"> Tidak Layak
                                 </label>
                             </div>
                         </div>
@@ -230,7 +259,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Pemakaian Listrik PLN </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Kebutuhan Listrik PLN </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="pemakaian_listrik" class="form-control">
                             <option value=1>Tidak Ada</option>
@@ -245,17 +274,6 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Bahan Bakar Memasak </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select name="bahan_bakar_masak" class="form-control">
-                            <option value=1>Kayu Bakar</option>
-                            <option value=2>Elpiji 3KG</option>
-                            <option value=3>Bright Gas 5,5KG</option>
-                            <option value=4>Elpiji / Bright Gas 12KG</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Konsumsi Daging/Susu/Ayam </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         <select name="konsumsi_dsa" class="form-control">
@@ -266,18 +284,6 @@
                             <option value=5>4-7 Kali Seminggu</option>
                           </select>
                           </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Membeli Pakaian </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select name="membeli_pakaian" class="form-control">
-                            <option value=1>0-1 Kali dalam 1 Tahun</option>
-                            <option value=2>2-3 Kali dalam 1 Tahun</option>
-                            <option value=3>4-5 Kali dalam 1 Tahun</option>
-                            <option value=4>6-7 Kali dalam 1 Tahun</option>
-                            <option value=5>Di Atas 7 Kali dalam 1 Tahun</option>
-                          </select>
-                        </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Makan Perhari </label>
