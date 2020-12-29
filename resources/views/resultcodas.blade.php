@@ -59,6 +59,7 @@
                                         @endif
                                         <td>
                                             <a href="/codasresult/{{ $participant -> id }}" class="badge badge-success">lihat</a>
+                                            <a href="/participantedit/{{ $participant -> id}}" class="badge badge-success">edit</a>
                                         </td>
                                     </tr>
                                 @endforeach

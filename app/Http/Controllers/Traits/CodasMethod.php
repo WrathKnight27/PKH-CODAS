@@ -32,8 +32,8 @@ trait CodasMethod
         foreach ($participants as $participant) {
             foreach ($codascriterias as $codascriteria) {
                 $xij = $this->xijselect($codascriteria, $participant);
-                $xijmax = DB::table('participants')->max($this->criteriaselect($codascriteria));
-                $xijmin = DB::table('participants')->min($this->criteriaselect($codascriteria));
+                $xijmax = DB::table('participants')->where('status_verifikasi', 1)->max($this->criteriaselect($codascriteria));
+                $xijmin = DB::table('participants')->where('status_verifikasi', 1)->min($this->criteriaselect($codascriteria));
                 // Normalisasi Nilai Performa
                 if($codascriteria->type == 1)
                     {
@@ -56,7 +56,24 @@ trait CodasMethod
             }
         }
         //
+        $this->counteiti();
+        //
+        // Menghitung Matriks Penilaian Relatif (Ra) dan Hasil Penilaian (Hi) pada alternatif
+        // Fungsi dipisah karena memerlukan waktu eksekusi yang sangat panjang
+        $this->countrh();
+        //
+   
+        //
+        $this->countresult();
+        //
+    }
+
+    //
+    public function counteiti()
+    {
         // Menghitung Jarak Euclidean & Taxicab Alternatif Terhadap Solusi Ideal-Negatif
+        $codascriterias = DB::select('select * from codascriterias where active = 1');
+        $participants = DB::select('select * from participants where status_verifikasi = 1');
         foreach ($participants as $participant) {
             $eit = 0;
             $Ti = 0;
@@ -77,11 +94,47 @@ trait CodasMethod
                 'Ti' => $Ti, 
             ]);
         }
-        //
+    }
+
+    //
+    public function countrh()
+    {
+        $partis = DB::select('select * from participants where status_verifikasi = 1');
+        $iterasi = DB::table('participants')->where('status_verifikasi', 1)->count();
         // Menghitung Matriks Penilaian Relatif (Ra) dan Hasil Penilaian (Hi) pada alternatif
-        // Fungsi dipisah karena memerlukan waktu eksekusi yang sangat panjang
-        $this->countrh();
-        //
+        foreach ($partis as $participant) {
+            $Hi = 0;
+            $Ei = $participant->Ei;
+            $Ti = $participant->Ti;
+            $i = 1;
+            while ($i <= $iterasi) {
+                $par = DB::table('variablesets')->where('id', '1')->value('parameter');
+                $Ek = DB::table('participants')->where('id', $i)->value('Ei');
+                $Tk = DB::table('participants')->where('id', $i)->value('Ti');
+                $Tik = $Ti - $Tk;
+                $Eik = abs($Ei - $Ek);
+                if($Eik >= $par)
+                {
+                    $ab = 1;
+                }
+                elseif($Eik < $par)
+                {
+                    $ab = 0;
+                }
+                $hik = ($Ei - $Ek) + ($ab * $Tik);
+                $Hi = $Hi + $hik;
+                $i++;
+            }
+            participant::where('id', $participant->id)->update([
+                'Hi' => $Hi,
+            ]);
+        }
+    }
+
+    //
+
+    public function countresult()
+    {
         // Penentuan Metode Budgeting Seleksi
         $count = DB::table('participants')->where('status_verifikasi', 1)->count();
         $kuotapersen = DB::table('variablesets')->where('id', '1')->value('percentquota');
@@ -95,8 +148,6 @@ trait CodasMethod
         } else {
             $quota = $kuotabudget;
         }
-        
-        //
         // Proses Perankingan, Penentuan Hasil Seleksi, & Perhitungan Nilai Bantuan
         $i=1;
         $rankedlist = participant::orderBy('Hi', 'desc')->get();
@@ -176,8 +227,7 @@ trait CodasMethod
                 }
             }
             
-            
-        
+
             if($participant->status_verifikasi == 1)
             {
                 if($method <= 2){    
@@ -247,45 +297,7 @@ trait CodasMethod
                 $i = $skiprank;
             }
         }
-        //
     }
-
-    //
-    //
-    public function countrh()
-    {
-        $participants = DB::select('select * from participants where status_verifikasi = 1');
-        $iterasi = DB::table('participants')->where('status_verifikasi', 1)->count();
-        // Menghitung Matriks Penilaian Relatif (Ra) dan Hasil Penilaian (Hi) pada alternatif
-        foreach ($participants as $participant) {
-            $Hi = 0;
-            $Ei = $participant->Ei;
-            $Ti = $participant->Ti;
-            $i = 1;
-            while ($i <= $iterasi) {
-                $par = DB::table('variablesets')->where('id', '1')->value('parameter');
-                $Ek = DB::table('participants')->where('id', $i)->value('Ei');
-                $Tk = DB::table('participants')->where('id', $i)->value('Ti');
-                $Tik = $Ti - $Tk;
-                $Eik = abs($Ei - $Ek);
-                if($Eik >= $par)
-                {
-                    $ab = 1;
-                }
-                elseif($Eik < $par)
-                {
-                    $ab = 0;
-                }
-                $hik = ($Ei - $Ek) + ($ab * $Tik);
-                $Hi = $Hi + $hik;
-                $i++;
-            }
-            participant::where('id', $participant->id)->update([
-                'Hi' => $Hi,
-            ]);
-        }
-    }
-
 
     //
 

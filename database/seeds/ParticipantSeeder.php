@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Faker\Generator as Faker;
 
 class ParticipantSeeder extends Seeder
 {
@@ -12,10 +13,13 @@ class ParticipantSeeder extends Seeder
      */
     public function run()
     {
-        for($n=0;$n<200;$n++){
+        $users = factory(App\User::class, 200)->make();
+        // for($n=0;$n<200;$n++){
+        foreach($users as $user){
             DB::table('participants')->insert([
                 'no_kk' => Rand(1000000000000000,9999999999999999),
-                'nama_krt' => Str::random(7),
+                // 'nama_krt' => Str::random(7),
+                'nama_krt' => $user->name,
                 'no_telp' => Rand(100000000000,999999999999),
                 'email' => Str::random(10),
                 'alamat_provinsi' => Str::random(10),
@@ -39,10 +43,10 @@ class ParticipantSeeder extends Seeder
                 'konsumsi_dsa' => Rand(2,5),  
                 'makan_perhari' => Rand(2,3), 
                 'pendidikan_krt' => Rand(2,7), 
-                'kendaraan_pribadi' => Rand(4,6), 
+                'kendaraan_pribadi' => Rand(2,6), 
                 'ibu_hamil' => Rand(0,1), 
                 'usia_dini' => Rand(0,2), 
-                'lanjut_usia' => Rand(0,4), 
+                'lanjut_usia' => Rand(0,2), 
                 'anak_sd' => Rand(0,3), 
                 'anak_smp' => Rand(0,2), 
                 'anak_sma' => Rand(0,2), 
