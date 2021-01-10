@@ -22,6 +22,7 @@ class CreateVariablesetsTable extends Migration
             $table->integer('numberquota')->default('20');
             $table->biginteger('budgetquota')->default('100000000');
             $table->integer('allocatedbudget')->default('0');
+            $table->decimal('sr',20,7)->nullable()->default(NULL);
         });
     }
 

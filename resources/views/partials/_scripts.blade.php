@@ -31,11 +31,11 @@
     <script src="{{asset('assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
     <script src="{{asset('assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
     <!-- morris.js -->
-    <script src="{{asset('assets/vendors/raphael/raphael.min.js')}}"></script>
-    <script src="{{asset('assets/vendors/morris.js/morris.min.js')}}"></script>
+    <!-- <script src="{{asset('assets/vendors/raphael/raphael.min.js')}}"></script>
+    <script src="{{asset('assets/vendors/morris.js/morris.min.js')}}"></script> -->
     <!-- morris2.js -->
-    <script src="{{asset('assets/vendors/raphael/raphael.min.js')}}"></script>
-    <script src="{{asset('assets/vendors/morris2.js/morris.min.js')}}"></script>
+    <!-- <script src="{{asset('assets/vendors/raphael/raphael.min.js')}}"></script> -->
+    <!-- <script src="{{asset('assets/vendors/morris2.js/morris.min.js')}}"></script> -->
     <!-- Datatables -->
     <script src="{{asset('assets/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>

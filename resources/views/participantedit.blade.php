@@ -159,11 +159,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Luas Bangunan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="luas_bangunan" class="form-control">
-                            <option value=1 {{ $participant->luas_bangunan == 1 ? 'selected' : '' }}>0-10 meter persegi</option>
-                            <option value=2 {{ $participant->luas_bangunan == 2 ? 'selected' : '' }}>10-20 meter persegi</option>
-                            <option value=3 {{ $participant->luas_bangunan == 3 ? 'selected' : '' }}>20-30 meter persegi</option>
-                            <option value=4 {{ $participant->luas_bangunan == 4 ? 'selected' : '' }}>30-40 meter persegi</option>
-                            <option value=5 {{ $participant->luas_bangunan == 5 ? 'selected' : '' }}>40++ meter persegi</option>
+                            <option value=1 {{ $participant->luas_bangunan == 1 ? 'selected' : '' }}>0-30 meter persegi</option>
+                            <option value=2 {{ $participant->luas_bangunan == 2 ? 'selected' : '' }}>30-60 meter persegi</option>
+                            <option value=3 {{ $participant->luas_bangunan == 3 ? 'selected' : '' }}>60-100 meter persegi</option>
+                            <option value=4 {{ $participant->luas_bangunan == 4 ? 'selected' : '' }}>100-150 meter persegi</option>
+                            <option value=5 {{ $participant->luas_bangunan == 5 ? 'selected' : '' }}>150++ meter persegi</option>
                           </select>
                         </div>
                       </div>
@@ -171,11 +171,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Luas Tanah </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="luas_tanah" class="form-control">
-                            <option value=1 {{ $participant->luas_tanah == 1 ? 'selected' : '' }}>0-20 meter persegi</option>
-                            <option value=2 {{ $participant->luas_tanah == 2 ? 'selected' : '' }}>20-40 meter persegi</option>
-                            <option value=3 {{ $participant->luas_tanah == 3 ? 'selected' : '' }}>40-60 meter persegi</option>
-                            <option value=4 {{ $participant->luas_tanah == 4 ? 'selected' : '' }}>60-80 meter persegi</option>
-                            <option value=5 {{ $participant->luas_tanah == 5 ? 'selected' : '' }}>80++ meter persegi</option>
+                            <option value=1 {{ $participant->luas_tanah == 1 ? 'selected' : '' }}>0-40 meter persegi</option>
+                            <option value=2 {{ $participant->luas_tanah == 2 ? 'selected' : '' }}>40-80 meter persegi</option>
+                            <option value=3 {{ $participant->luas_tanah == 3 ? 'selected' : '' }}>80-130 meter persegi</option>
+                            <option value=4 {{ $participant->luas_tanah == 4 ? 'selected' : '' }}>130-200 meter persegi</option>
+                            <option value=5 {{ $participant->luas_tanah == 5 ? 'selected' : '' }}>200++ meter persegi</option>
                           </select>
                         </div>
                       </div>
@@ -304,7 +304,7 @@
                             <option value=2 {{ $participant->pendidikan_krt == 2 ? 'selected' : '' }}>SD</option>
                             <option value=3 {{ $participant->pendidikan_krt == 3 ? 'selected' : '' }}>SMP</option>
                             <option value=4 {{ $participant->pendidikan_krt == 4 ? 'selected' : '' }}>SMA</option>
-                            <option value=5 {{ $participant->pendidikan_krt == 5 ? 'selected' : '' }}>D3</option>
+                            <option value=5 {{ $participant->pendidikan_krt == 5 ? 'selected' : '' }}>D1/D2/D3</option>
                             <option value=6 {{ $participant->pendidikan_krt == 6 ? 'selected' : '' }}>S1</option>
                             <option value=7 {{ $participant->pendidikan_krt == 7 ? 'selected' : '' }}>S2</option>
                             <option value=8 {{ $participant->pendidikan_krt == 8 ? 'selected' : '' }}>S3</option>
@@ -315,12 +315,12 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Taksiran Nilai Kendaraan Pribadi </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="kendaraan_pribadi" class="form-control">
-                            <option value=1 {{ $participant->kendaraan_pribadi == 1 ? 'selected' : '' }}>Rp 0 - Rp 1.000.000</option>
-                            <option value=2 {{ $participant->kendaraan_pribadi == 2 ? 'selected' : '' }}>Rp 1.000.100 - Rp 3.000.000</option>
-                            <option value=3 {{ $participant->kendaraan_pribadi == 3 ? 'selected' : '' }}>Rp 3.000.100 - Rp 5.000.000</option>
-                            <option value=4 {{ $participant->kendaraan_pribadi == 4 ? 'selected' : '' }}>Rp 5.000.100 - Rp 8.000.000</option>
-                            <option value=5 {{ $participant->kendaraan_pribadi == 5 ? 'selected' : '' }}>Rp 8.000.100 - Rp 15.000.000</option>
-                            <option value=6 {{ $participant->kendaraan_pribadi == 6 ? 'selected' : '' }}>Di Atas Rp 15.000.000</option>
+                            <option value=1 {{ $participant->kendaraan_pribadi == 1 ? 'selected' : '' }}>Rp 0 - Rp 2.000.000</option>
+                            <option value=2 {{ $participant->kendaraan_pribadi == 2 ? 'selected' : '' }}>Rp 2.000.100 - Rp 3.000.000</option>
+                            <option value=3 {{ $participant->kendaraan_pribadi == 3 ? 'selected' : '' }}>Rp 5.000.100 - Rp 10.000.000</option>
+                            <option value=4 {{ $participant->kendaraan_pribadi == 4 ? 'selected' : '' }}>Rp 10.000.100 - Rp 20.000.000</option>
+                            <option value=5 {{ $participant->kendaraan_pribadi == 5 ? 'selected' : '' }}>Rp 20.000.100 - Rp 40.000.000</option>
+                            <option value=6 {{ $participant->kendaraan_pribadi == 6 ? 'selected' : '' }}>Di Atas Rp 40.000.000</option>
                           </select>
                         </div>
                       </div>

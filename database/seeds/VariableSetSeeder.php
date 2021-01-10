@@ -18,8 +18,9 @@ class VariableSetSeeder extends Seeder
                 'method' => 1,
                 'percentquota' => 10,
                 'numberquota' => 20,
-                'budgetquota' => 100000000,
+                'budgetquota' => 300000000,
                 'allocatedbudget' => 0,
+                'sr' => NULL,
             ]
         );
         

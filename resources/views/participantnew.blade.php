@@ -158,11 +158,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Luas Bangunan </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="luas_bangunan" class="form-control">
-                            <option value=1>0-10 meter persegi</option>
-                            <option value=2>10-20 meter persegi</option>
-                            <option value=3>20-30 meter persegi</option>
-                            <option value=4>30-40 meter persegi</option>
-                            <option value=5>40++ meter persegi</option>
+                            <option value=1>0-30 meter persegi</option>
+                            <option value=2>30-60 meter persegi</option>
+                            <option value=3>60-100 meter persegi</option>
+                            <option value=4>100-150 meter persegi</option>
+                            <option value=5>150++ meter persegi</option>
                           </select>
                         </div>
                       </div>
@@ -170,11 +170,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Luas Tanah </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="luas_tanah" class="form-control">
-                            <option value=1>0-20 meter persegi</option>
-                            <option value=2>20-40 meter persegi</option>
-                            <option value=3>40-60 meter persegi</option>
-                            <option value=4>60-80 meter persegi</option>
-                            <option value=5>80++ meter persegi</option>
+                            <option value=1>0-40 meter persegi</option>
+                            <option value=2>40-80 meter persegi</option>
+                            <option value=3>80-130 meter persegi</option>
+                            <option value=4>130-200 meter persegi</option>
+                            <option value=5>200++ meter persegi</option>
                           </select>
                         </div>
                       </div>
@@ -303,7 +303,7 @@
                             <option value=2>SD</option>
                             <option value=3>SMP</option>
                             <option value=4>SMA</option>
-                            <option value=5>D3</option>
+                            <option value=5>D1/D2/D3</option>
                             <option value=6>S1</option>
                             <option value=7>S2</option>
                             <option value=8>S3</option>
@@ -314,12 +314,12 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Taksiran Nilai Kendaraan Pribadi </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="kendaraan_pribadi" class="form-control">
-                            <option value=1>Rp 0 - Rp 1.000.000</option>
-                            <option value=2>Rp 1.000.100 - Rp 3.000.000</option>
-                            <option value=3>Rp 3.000.100 - Rp 5.000.000</option>
-                            <option value=4>Rp 5.000.100 - Rp 8.000.000</option>
-                            <option value=5>Rp 8.000.100 - Rp 15.000.000</option>
-                            <option value=6>Di Atas Rp 15.000.000</option>
+                            <option value=1>Rp 0 - Rp 2.000.000</option>
+                            <option value=2>Rp 2.000.100 - Rp 5.000.000</option>
+                            <option value=3>Rp 5.000.100 - Rp 10.000.000</option>
+                            <option value=4>Rp 10.000.100 - Rp 20.000.000</option>
+                            <option value=5>Rp 20.000.100 - Rp 40.000.000</option>
+                            <option value=6>Di Atas Rp 40.000.000</option>
                           </select>
                         </div>
                       </div>

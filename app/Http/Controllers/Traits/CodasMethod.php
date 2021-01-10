@@ -6,6 +6,7 @@ use App\participant;
 use App\participant2;
 use App\codascriteria;
 use App\pkhcriteria;
+use App\variableset;
 
 use Illuminate\Support\Facades\DB;
  
@@ -56,15 +57,19 @@ trait CodasMethod
             }
         }
         //
+        // Fungsi dibawah ini dipisah karena memerlukan waktu eksekusi yang sangat panjang
+        //
+        // Menghitung Jarak Euclidean dan Taxicab Alternatif
         $this->counteiti();
         //
         // Menghitung Matriks Penilaian Relatif (Ra) dan Hasil Penilaian (Hi) pada alternatif
-        // Fungsi dipisah karena memerlukan waktu eksekusi yang sangat panjang
         $this->countrh();
         //
-   
-        //
+        // Proses Perankingan, Penentuan Hasil Seleksi, & Perhitungan Nilai Bantuan
         $this->countresult();
+        //
+        // Perhitungan Simpangan Rata-rata atau Mean Absolute Deviation (MAD) dari 20 alternatif terbaik
+        $this->countsr();
         //
     }
 
@@ -297,6 +302,24 @@ trait CodasMethod
                 $i = $skiprank;
             }
         }
+    }
+
+    //
+
+    public function countsr()
+    {
+        // Menghitung Simpangan Rata-rata 20 Alternatif dengan Hasil Penilaian Tertinggi
+        $top20s = DB::select('select * from participants where rank <= 20');
+        $top20avg = DB::table('participants')->where('rank', '<=', 20)->avg('Hi');
+        $sm = 0;
+        foreach ($top20s as $participant) {
+            $sa = abs($participant->Hi - $top20avg);
+            $sm = $sm + $sa;
+        }
+        $mad = $sm / 20;
+        variableset::where('id', 1)->update([
+            'sr' => $mad,
+        ]);
     }
 
     //

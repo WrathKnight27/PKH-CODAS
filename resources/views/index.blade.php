@@ -12,6 +12,16 @@
       $danatotal = DB::table('variablesets')->sum('budgetquota');
       $dt = $danateralokasi / 1000000 ;
       $dtot = $danatotal /1000000 ;
+      $n1 = DB::table('pkhstats')->where('id',1)->value('receiver');
+      $n2 = DB::table('pkhstats')->where('id',2)->value('receiver');
+      $n3 = DB::table('pkhstats')->where('id',3)->value('receiver');
+      $n4 = DB::table('pkhstats')->where('id',4)->value('receiver');
+      $n5 = DB::table('pkhstats')->where('id',5)->value('receiver');
+      $m2 = DB::table('pkhstats')->where('id',2)->value('budget');
+      $m1 = DB::table('pkhstats')->where('id',1)->value('budget');
+      $m3 = DB::table('pkhstats')->where('id',3)->value('budget');
+      $m4 = DB::table('pkhstats')->where('id',4)->value('budget');
+      $m5 = DB::table('pkhstats')->where('id',5)->value('budget');
   ?>
   <div class="row tile_count">
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -58,7 +68,7 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content2">
-            <div id="graph_line" style="width:100%; height:300px;"></div>
+            <div id="graph_anu" style="width:100%; height:300px;"></div>
           </div>
         </div>
       </div>
@@ -73,8 +83,8 @@
             
           </div>
           <div class="x_content">
-            <div class="demo-container" style="height:290px">
-              <div id="chart_plot_03" class="demo-placeholder"></div>
+            <div class="demo-container">
+              <div id="graph_nunu" style="width:100%; height:300px;"></div>
             </div>
           </div>
         </div>
@@ -83,4 +93,47 @@
   <br />
 
 </div>
+@endsection
+
+@section('js')
+<script src="{{ asset('assets/vendors/raphael/raphael.min.js')}}"></script>
+<script src="{{ asset('assets/vendors/morris.js/morris.min.js')}}"></script>
+    <script>
+    $(document).ready(function() {
+      Morris.Line({
+          element: 'graph_anu',
+          xkey: 'year',
+          ykeys: ['value'],
+          labels: ['Value'],
+          hideHover: 'auto',
+          lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+          data: [
+          {year: '2014', value: {{$n1}}},
+          {year: '2015', value: {{$n2}}},
+          {year: '2016', value: {{$n3}}},
+          {year: '2017', value: {{$n4}}},
+          {year: '2018', value: {{$n5}}}
+          ],
+          resize: true
+        });
+        Morris.Line({
+          element: 'graph_nunu',
+          xkey: 'year',
+          ykeys: ['value'],
+          labels: ['Value'],
+          hideHover: 'auto',
+          lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+          data: [
+          {year: '2014', value: {{$m1}}},
+          {year: '2015', value: {{$m2}}},
+          {year: '2016', value: {{$m3}}},
+          {year: '2017', value: {{$m4}}},
+          {year: '2018', value: {{$m5}}}
+          ],
+          resize: true
+        });
+    })
+    console.log($('#graph_anu').length)
+      
+    </script>
 @endsection

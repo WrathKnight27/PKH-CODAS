@@ -29,7 +29,8 @@
                     </div>
                     <div class="x_content">
                         <p class="text-muted font-13 m-b-30">
-                            Ini adalah data hasil seleksi menggunakan kriteria kemiskinan dan metode CODAS
+                            Ini adalah data hasil seleksi menggunakan kriteria kemiskinan dan metode CODAS</br>
+                            Simpangan Rata-rata 20 hasil penilaian tertinggi = {{$sr}}
                         </p>
                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap">
                             <thead>

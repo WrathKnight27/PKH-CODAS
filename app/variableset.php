@@ -14,6 +14,6 @@ class variableset extends Model
      */
     public $timestamps = false;
     protected $fillable = [
-       'name', 'parameter', 'method', 'percentquota', 'numberquota', 'budgetquota', 'allocatedbudget',
+       'name', 'parameter', 'method', 'percentquota', 'numberquota', 'budgetquota', 'allocatedbudget', 'sr',
     ];
 }
